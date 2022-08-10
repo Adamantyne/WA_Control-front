@@ -10,11 +10,6 @@ export function Provider(props) {
   const [contextData, setContext] = react.useState({
     url: process.env.REACT_APP_URL
   });
-  const [windowState, setWindowState] = react.useState({ 
-    id: undefined,
-    type:undefined,
-    isOpen:false
-  });
 
   useEffect(() => {
     const token = getItem("token");
@@ -28,9 +23,7 @@ export function Provider(props) {
   return (
     <context.Provider value={{
       contextData,
-      setContext,
-      windowState,
-      setWindowState
+      setContext
     }}>
       {props.children}
     </context.Provider>

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 
 import { AuthForm } from "../../layout/Form";
-import DivLabel from "../../layout/Label";
+import ErrLabel from "../../layout/ErrLabel";
 import Button from "../../layout/Button";
 import Input from "../../layout/Input";
 
@@ -20,7 +20,7 @@ export default function SignInForm(props) {
           setSignInData({ ...signInData, email: e.target.value })
         }
       />
-      <DivLabel
+      <ErrLabel
         color={
           errorMessage.includes("email")
             ? "var(--color-error)"
@@ -37,7 +37,7 @@ export default function SignInForm(props) {
           setSignInData({ ...signInData, password: e.target.value })
         }
       />
-      <DivLabel
+      <ErrLabel
         color={
           errorMessage.includes("password")
             ? "var(--color-error)"

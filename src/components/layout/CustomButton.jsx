@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const CustonButon = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: ${(props) => props.width};
   height: var(--objeects-height);
   font-size: var(--font-size-4);
   border: none;
   color: white;
-  background-color: var(--color-main2);
+  background-color: ${(props) => props.backgroundColor};
   border-radius: var(--border-radious-2);
+  margin: ${(props) => props.margin};
   :hover {
     cursor: pointer;
-    background-color: var(--color-main);
+    background-color: ${(props) => props.hoverBackgroundColor};
   }
 `;
 
-export default Button;
+export default CustonButon;
+

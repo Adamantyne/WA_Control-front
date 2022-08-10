@@ -12,6 +12,11 @@ export const Form = styled.form`
     margin-top: 10px;
     text-align: center;
   }
+  div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 export const AuthForm = styled(Form)`

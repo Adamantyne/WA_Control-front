@@ -1,37 +1,41 @@
 import styled from "styled-components";
 
-import { getContext } from "../../../hooks/UserContext";
+import { getWindowContext } from "../../../hooks/windowContext";
 import CustomerWindow from "./CustomerWindow";
+import ServiceWindow from "./ServiceWindow";
 
 export default function Windows(props) {
-  const { windowState, setWindowState } = getContext();
+  const { windowState } = getWindowContext();
   const { id, type, isOpen } = windowState;
 
   return (
     <BackgroundWindow isOpen={isOpen}>
-      <WindowContainer>
+      <WindowContainer isOpen={isOpen}>
         {type==="customer"?<CustomerWindow id={id}/>:""}
+        {type==="service"?<ServiceWindow id={id}/>:""}
       </WindowContainer>
     </BackgroundWindow>
   );
 }
 
 const WindowContainer = styled.section`
-  display: "flex";
+  display: ${(props) => (props.isOpen ? "flex" : "none")};
   width: 100%;
-  max-width: 600px;
-  background-color: pink;
-  min-height: 500px;
+  max-width: var(--window-max-width);
+  background-color: var(--color-white);
+  min-height: var(--window-min-heigth);
+  max-height: var(--window-min-heigth);
+  overflow-y: auto;
+  padding: var(--window-padding);
 `;
 
 const BackgroundWindow = styled.section`
   display: ${(props) => (props.isOpen ? "flex" : "none")};
-  position: fixed;
-  z-index: 1;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: var(--color-purple);
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
 `;

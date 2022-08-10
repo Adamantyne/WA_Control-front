@@ -6,27 +6,27 @@ import HomePage from "../../layout/HomePage";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
 import Button from "../../layout/Button";
-import CustomerContainer from "./CustomerContainer";
+import ServiceContainer from "./ServiceContainer";
 import Loader from "../../layout/Loader";
 
-export default function Customers() {
-  const [customers, setCustomers] = useState("Carregando");
+export default function Services() {
+  const [services, setServices] = useState("Carregando");
   const { contextData } = getContext();
-  const { windowState, openWindow } = getWindowContext();
+  const { windowState,  openWindow } = getWindowContext();
 
   useEffect(() => {
     if (contextData.config) {
-      getCustomers();
+      getServices();
     }
   }, [contextData, windowState.isOpen]);
 
-  async function getCustomers() {
+  async function getServices() {
     try {
-      const response = await getRequisition("customers", contextData);
+      const response = await getRequisition("services", contextData);
       if (response.length === 0) {
-        setCustomers("Não há clientes cadastrados");
+        setServices("Não há serviços cadastrados");
       } else {
-        setCustomers(response);
+        setServices(response);
       }
     } catch (error) {
       console.log(error);
@@ -35,27 +35,27 @@ export default function Customers() {
 
   return (
     <HomePage>
-      <NewCustomerButton
+      <NewServiceButton
         onClick={() => {
-          openWindow("customer");
+          openWindow("service");
         }}
       >
-        Criar cliente
-      </NewCustomerButton>
-      {typeof customers === "string"
+        Criar serviço
+      </NewServiceButton>
+      {typeof services === "string"
         ? <Loader />
-        : customers.map((customer) => {
+        : services.map((service) => {
             return (
-              <CustomerContainer
-                key={customer.id}
-                customerData={customer}
-              ></CustomerContainer>
+              <ServiceContainer
+                key={service.id}
+                serviceData={service}
+              ></ServiceContainer>
             );
           })}
     </HomePage>
   );
 }
 
-const NewCustomerButton = styled(Button)`
+const NewServiceButton = styled(Button)`
   max-width: var(--page-max-width);
 `;

@@ -5,23 +5,31 @@ import "../../assets/css/index.css";
 import "../../assets/css/query.css";
 
 import { Provider } from "../../hooks/UserContext";
+import { ProviderWindow } from "../../hooks/windowContext";
+import { ProviderSidebar } from "../../hooks/sidebarContext";
 import SignUp from "../routes/SignUp";
 import SignIn from "../routes/SignIn";
 import Home from "../routes/Home";
 import Customers from "../routes/Customers";
+import Services from "../routes/Services";
 
 function App() {
   return (
-      <Provider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<SignIn />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/customers" element={<Customers />} />
-          </Routes>
-        </BrowserRouter>
-      </Provider>
+    <Provider>
+      <ProviderWindow>
+        <ProviderSidebar>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<SignIn />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/customers" element={<Customers />} />
+              <Route path="/services" element={<Services />} />
+            </Routes>
+          </BrowserRouter>
+        </ProviderSidebar>
+      </ProviderWindow>
+    </Provider>
   );
 }
 

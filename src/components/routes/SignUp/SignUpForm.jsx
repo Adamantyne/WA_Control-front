@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import {AuthForm} from "../../layout/Form";
-import DivLabel from "../../layout/Label";
+import ErrLabel from "../../layout/ErrLabel";
 import Button from "../../layout/Button";
 import Input from "../../layout/Input";
 
@@ -21,7 +21,7 @@ export default function SignUpForm(props) {
           setSignUpData({ ...signUpData, email: e.target.value })
         }
       />
-      <DivLabel
+      <ErrLabel
         color={
           errorMessage.includes("email")
             ? "var(--color-error)"
@@ -38,7 +38,7 @@ export default function SignUpForm(props) {
           setSignUpData({ ...signUpData, username: e.target.value })
         }
       />
-      <DivLabel message="" />
+      <ErrLabel message="" />
       <Input
         type="password"
         required
@@ -48,7 +48,7 @@ export default function SignUpForm(props) {
           setSignUpData({ ...signUpData, password: e.target.value })
         }
       />
-      <DivLabel message="" />
+      <ErrLabel message="" />
       <Input
         type="password"
         required
@@ -58,7 +58,7 @@ export default function SignUpForm(props) {
           setSignUpData({ ...signUpData, confirmPassword: e.target.value })
         }
       />
-      <DivLabel
+      <ErrLabel
         color={
           errorMessage.includes("password")
             ? "var(--color-error)"

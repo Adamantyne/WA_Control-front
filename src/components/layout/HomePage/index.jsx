@@ -6,9 +6,9 @@ import Windows from "../Windows";
 export default function HomePage(props) {
   return (
     <HomeScreen>
-      <Windows></Windows>
       <Sidebar></Sidebar>
       <Page>{props.children}</Page>
+      <Windows />
     </HomeScreen>
   );
 }

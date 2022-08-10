@@ -1,4 +1,4 @@
-import { BsPersonCircle } from "react-icons/bs";
+import { AiFillTool } from "react-icons/ai";
 
 import {
   ElementContainer,
@@ -8,19 +8,19 @@ import {
 import { getWindowContext } from "../../../hooks/windowContext";
 
 export default function CustomerContainer(props) {
-  const { customerData } = props;
+  const { serviceData } = props;
   const { openWindow } = getWindowContext();
-  const { name, establishment, id } = customerData;
+  const { value, id, name } = serviceData;
   return (
     <ElementContainer
       onClick={() => {
-        openWindow("customer", id);
+        openWindow("service", id);
       }}
     >
-      <BsPersonCircle />
+      <AiFillTool />
       <ElementInformations>
         <h2>{name}</h2>
-        <p>{establishment}</p>
+        <p>{`R$ ${value/100}`}</p>
       </ElementInformations>
     </ElementContainer>
   );

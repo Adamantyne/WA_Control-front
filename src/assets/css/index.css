@@ -15,6 +15,7 @@
   --font-size-3:16px;
   --font-size-4:18px;
   --font-size-5:24px;
+  --font-size-6:32px;
   --font-size-tittle:80px;
 
   /* geral colors */
@@ -25,11 +26,29 @@
 	--color-grey:#CECECE;
 	--color-dark-grey:#9B9595;
   --color-transparent: transparent;
-  --color-error: #ff3e78;
+  --color-error: #fd3d5d;
+  --color-error2: rgb(255, 0, 0);
+  --color-purple: #8d008d;
+  --background-window:rgb(0, 0, 0, 0.5);
+  --shadow:0px 0px 5px rgb(0,0,0,0.5);
+  --low-opacit:0.4;
 
   /* sizes */
   --auth-max-width:400px;
-
+  --min-height: 100vh;
+  --element-container-min-heigth:200px;
+  --window-min-heigth:100vh;
+  --window-max-width:400px;
+  --window-padding:10px 5px 10px 5px;
+  --page-max-width:500px;
+  --page-min-width:500px;
+  --page-padding:20px 50px 0 50px;
+  --objeects-height:35px;
+  
+  /* borders*/
+  --border-radious-1:8px;
+  --border-radious-2:10px;
+  --input-border:1px solid var(--color-main);
 }
 
 body {
