@@ -3,7 +3,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import {
   ElementContainer,
   ElementInformations,
-} from "../../layout/ElementContainer";
+} from "../../layout/MacroElements/ElementContainer";
 
 import { getWindowContext } from "../../../hooks/windowContext";
 

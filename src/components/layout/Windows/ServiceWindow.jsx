@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-import { Form } from "../Form";
-import Input from "../Input";
+import { Form } from "../MacroElements/Form";
+import Input from "../MicroElements/Input";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
 import { getRequisition, postRequisition } from "../../../utils/api";
-import Button from "../Button";
-import InfoLabel from "../InfoLabel";
-import ErrLabel from "../ErrLabel";
-import CustonButon from "../CustomButton";
+import Button from "../MicroElements/Button";
+import InfoLabel from "../MicroElements/InfoLabel";
+import ErrLabel from "../MicroElements/ErrLabel";
+import CustonButon from "../MicroElements/CustomButton";
 
 export default function ServiceWindow(props) {
   const { id } = props;

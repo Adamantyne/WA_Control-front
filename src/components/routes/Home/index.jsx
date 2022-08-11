@@ -1,7 +1,7 @@
-import HomePage from "../../layout/HomePage";
+import DefaultScreen from "../../layout/DefaultScreen";
 
 export default function Home(){
     return(
-        <HomePage><h1>ok</h1></HomePage>
+        <DefaultScreen><h1>ok</h1></DefaultScreen>
     )
 }

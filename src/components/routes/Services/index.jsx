@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { getRequisition } from "../../../utils/api";
-import HomePage from "../../layout/HomePage";
+import DefaultScreen from "../../layout/DefaultScreen";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
-import Button from "../../layout/Button";
+import Button from "../../layout/MicroElements/Button";
 import ServiceContainer from "./ServiceContainer";
-import Loader from "../../layout/Loader";
+import Loader from "../../layout/MicroElements/Loader";
 
 export default function Services() {
   const [services, setServices] = useState("Carregando");
@@ -34,7 +34,7 @@ export default function Services() {
   }
 
   return (
-    <HomePage>
+    <DefaultScreen>
       <NewServiceButton
         onClick={() => {
           openWindow("service");
@@ -52,7 +52,7 @@ export default function Services() {
               ></ServiceContainer>
             );
           })}
-    </HomePage>
+    </DefaultScreen>
   );
 }
 

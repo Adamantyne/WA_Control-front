@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { AuthForm } from "../../layout/Form";
-import ErrLabel from "../../layout/ErrLabel";
-import Button from "../../layout/Button";
-import Input from "../../layout/Input";
+import { AuthForm } from "../../layout/MacroElements/Form";
+import ErrLabel from "../../layout/MicroElements/ErrLabel";
+import Button from "../../layout/MicroElements/Button";
+import Input from "../../layout/MicroElements/Input";
 
 export default function SignInForm(props) {
   const {submitData,signInData,setSignInData,errorMessage} = props;

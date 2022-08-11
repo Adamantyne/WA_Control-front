@@ -3,7 +3,7 @@ import { AiFillTool } from "react-icons/ai";
 import {
   ElementContainer,
   ElementInformations,
-} from "../../layout/ElementContainer";
+} from "../../layout/MacroElements/ElementContainer";
 
 import { getWindowContext } from "../../../hooks/windowContext";
 

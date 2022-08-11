@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { getRequisition } from "../../../utils/api";
-import HomePage from "../../layout/HomePage";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
-import Button from "../../layout/Button";
+import DefaultScreen from "../../layout/DefaultScreen";
+import Button from "../../layout/MicroElements/Button";
+import Loader from "../../layout/MicroElements/Loader";
 import CustomerContainer from "./CustomerContainer";
-import Loader from "../../layout/Loader";
 
 export default function Customers() {
   const [customers, setCustomers] = useState("Carregando");
@@ -34,7 +34,7 @@ export default function Customers() {
   }
 
   return (
-    <HomePage>
+    <DefaultScreen>
       <NewCustomerButton
         onClick={() => {
           openWindow("customer");
@@ -52,7 +52,7 @@ export default function Customers() {
               ></CustomerContainer>
             );
           })}
-    </HomePage>
+    </DefaultScreen>
   );
 }
 
