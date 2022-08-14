@@ -36,6 +36,7 @@
   /* sizes */
   --auth-max-width:400px;
   --min-height: 100vh;
+  --min-width: 100vw;
   --element-container-min-heigth:200px;
   --window-min-heigth:100vh;
   --window-max-width:400px;
@@ -49,6 +50,13 @@
   --border-radious-1:8px;
   --border-radious-2:10px;
   --input-border:1px solid var(--color-main);
+
+  /* calendar*/
+  --cell-width:150px;
+  --cell-heigth:130px;
+  --month-inputh-width:70px;
+  --month-inputh-heigth:42px;
+  --cell-border: inset 1px 1px 1px var(--color-main);
 }
 
 body {

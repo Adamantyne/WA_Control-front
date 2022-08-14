@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { BsPersonCircle } from "react-icons/bs";
+import { BsPersonCircle,BsFillCalendarWeekFill } from "react-icons/bs";
 import { AiFillHome, AiFillTool } from "react-icons/ai";
 
 import { getWindowContext } from "../../../hooks/windowContext";
@@ -24,19 +24,24 @@ export default function Sidebar() {
         />
       )}
       <Link to={"/home"} onClick={()=>closeWindow()}>
-        <Option>
+        <SidebarOption>
           <AiFillHome />
-        </Option>
+        </SidebarOption>
       </Link>
       <Link to={"/customers"} onClick={()=>closeWindow()}>
-        <Option>
+        <SidebarOption>
           <BsPersonCircle />
-        </Option>
+        </SidebarOption>
       </Link>
       <Link to={"/services"} onClick={()=>closeWindow()}>
-        <Option>
+        <SidebarOption>
           <AiFillTool />
-        </Option>
+        </SidebarOption>
+      </Link>
+      <Link to={"/calendar"} onClick={()=>closeWindow()}>
+        <SidebarOption>
+          <BsFillCalendarWeekFill />
+        </SidebarOption>
       </Link>
     </SidebarContainer>
   );
@@ -64,7 +69,7 @@ const SidebarContainer = styled.aside`
   }
 `;
 
-const Option = styled.div`
+const SidebarOption = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

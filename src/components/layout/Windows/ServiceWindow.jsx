@@ -40,7 +40,6 @@ export default function ServiceWindow(props) {
         const formateData = deleteAtributes(serviceData);
         await postRequisition(`services/${id}`, contextData, {
           ...formateData,
-          value: formateData.value,
         });
       } else {
         await postRequisition(`services`, contextData, serviceData);
@@ -85,11 +84,9 @@ export default function ServiceWindow(props) {
           onChange={(e) => {
             const formatedValue = e.target.value
               .replace("R$", "")
-              .replace(",", "")
-              .replace(".", "");
             setServiceData({
               ...serviceData,
-              value: parseInt(formatedValue),
+              value: parseInt(formatedValue*100),
             });
           }}
         />
