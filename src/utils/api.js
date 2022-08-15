@@ -20,3 +20,13 @@ export async function getRequisition(route,contextData) {
         throw new Error(error.response.data);
     }
 }
+
+export async function deleteRequisition(route,contextData) {
+    try {
+        const config = contextData.config?contextData.config:``;
+        const response = await axios.delete(`${contextData.url}/${route}`,config);
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.data);
+    }
+}

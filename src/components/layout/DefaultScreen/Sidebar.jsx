@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { BsPersonCircle,BsFillCalendarWeekFill } from "react-icons/bs";
+import { BsPersonCircle,BsFillCalendarWeekFill,BsFillGearFill } from "react-icons/bs";
 import { AiFillHome, AiFillTool } from "react-icons/ai";
 
 import { getWindowContext } from "../../../hooks/windowContext";
@@ -26,6 +26,11 @@ export default function Sidebar() {
       <Link to={"/home"} onClick={()=>closeWindow()}>
         <SidebarOption>
           <AiFillHome />
+        </SidebarOption>
+      </Link>
+      <Link to={"/works"} onClick={()=>closeWindow()}>
+        <SidebarOption>
+          <BsFillGearFill />
         </SidebarOption>
       </Link>
       <Link to={"/customers"} onClick={()=>closeWindow()}>
@@ -53,18 +58,22 @@ const SidebarContainer = styled.aside`
   height: 100%;
   min-height: var(--min-height);
   min-width: ${(props) => (props.children[0].props.isopen ? "200px" : "50px")};
-  background-color: var(--color-main2);
+  background-color: var(--color-main-3);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 8px;
   transition: all 0.2s ease-out;
   overflow-x: hidden;
+  border-right: var(--white-border);
+  border-radius: 0 10px 10px 0;
   svg {
+    transition: all 0.1s linear;
     font-size: var(--font-size-6);
     color: var(--color-white);
     :hover {
       cursor: pointer;
+      color: var(--hover-color);
     }
   }
 `;

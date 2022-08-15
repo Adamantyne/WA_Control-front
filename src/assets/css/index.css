@@ -15,12 +15,17 @@
   --font-size-3:16px;
   --font-size-4:18px;
   --font-size-5:24px;
-  --font-size-6:32px;
+  --font-size-6:28px;
   --font-size-tittle:80px;
 
   /* geral colors */
 	--color-main:#2600ff;
   --color-main2:#6e55ff;
+  --color-main-2:#583bfc;
+  --color-main-3:rgba(66, 5, 180, 0.7);
+  --color-main-4:rgba(143, 82, 255, 0.4);
+  --color-main-5:#8067f1;
+  --hover-color:#fd3d5d;
 	--color-white:#ffffff;
 	--color-black:#171717;
 	--color-grey:#CECECE;
@@ -28,8 +33,10 @@
   --color-transparent: transparent;
   --color-error: #fd3d5d;
   --color-error2: rgb(255, 0, 0);
+  --color-error-2: rgb(255, 0, 0);
   --color-purple: #8d008d;
-  --background-window:rgb(0, 0, 0, 0.5);
+  --black-window:rgb(0, 0, 0, 0.4);
+  --white-window:rgba(255, 255, 255, 0.6);
   --shadow:0px 0px 5px rgb(0,0,0,0.5);
   --low-opacit:0.4;
 
@@ -45,18 +52,23 @@
   --page-min-width:500px;
   --page-padding:20px 50px 0 50px;
   --objeects-height:35px;
+  --objeects-height2:65px;
   
   /* borders*/
   --border-radious-1:8px;
   --border-radious-2:10px;
-  --input-border:1px solid var(--color-main);
+  --input-border:2px solid var(--color-main-2);
+  --white-border:1px solid var(--color-white);
 
   /* calendar*/
-  --cell-width:150px;
+  --cell-width:250px;
   --cell-heigth:130px;
-  --month-inputh-width:70px;
+  --month-inputh-width:100px;
   --month-inputh-heigth:42px;
   --cell-border: inset 1px 1px 1px var(--color-main);
+  --white-border: inset 1px 1px 1px var(--color-white);
+  --schedule-min-height:70px;
+  --cell-padding: 5px;
 }
 
 body {

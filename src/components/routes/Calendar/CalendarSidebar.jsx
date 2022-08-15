@@ -6,19 +6,20 @@ export default function CalendarSidebar() {
   return (
     <CalendarSidebarContainer>
       {hours.map((hour) => {
-        return <HourCell>{hour}</HourCell>;
+        return <HourCell key={`${hour}`}>{hour}</HourCell>;
       })}
     </CalendarSidebarContainer>
   );
 }
 
 const CalendarSidebarContainer = styled.section`
-  margin-top: 1px;
+  position: sticky;
+  left: 0;
+  margin-top: 2px;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: purple;
   width: var(--month-inputh-width);
 `;
 const HourCell = styled.article`
@@ -29,6 +30,9 @@ const HourCell = styled.article`
   min-height: var(--cell-heigth);
   min-width: var(--month-inputh-width);
   justify-content: center;
-  background-color: white;
-  box-shadow: var(--cell-border);
+  font-weight:var(--font-bold);
+  background-color: var(--color-main-2);
+  color: var(--color-white);
+  box-shadow: var(--white-border);
+  z-index: 1;
 `;

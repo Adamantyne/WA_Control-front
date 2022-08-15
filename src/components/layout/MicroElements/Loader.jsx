@@ -9,7 +9,7 @@ export default function Loader(props) {
       ) : (
         <>
           <span></span>
-          <p>Loading more posts...</p>
+          <p>Loading ...</p>
         </>
       )}
     </Container>

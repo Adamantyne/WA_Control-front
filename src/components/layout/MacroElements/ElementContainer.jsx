@@ -4,7 +4,7 @@ export const ElementContainer = styled.article`
 display: flex;
 align-items: center;
 width: 100%;
-background-color: var(--color-main2);
+background-color: var(--color-main-2);
 border-radius: var(--border-radious-2);
 box-shadow: var(--shadow);
 padding: 20px;
@@ -16,8 +16,7 @@ svg{
 }
 :hover{
       cursor: pointer;
-      background-color: var(--color-gray);
-      color: var(--color-main);
+      background-color: var(--color-main);
     }
 `;
 
@@ -29,10 +28,6 @@ export const ElementInformations = styled.div`
   justify-content: space-between;
   padding-left: 10px;
   overflow: hidden;
-  h2{
-    font-size:var(--font-size-5);
-    margin-bottom: 10px;
-  }
   p{
     font-size:var(--font-size-4);
   }

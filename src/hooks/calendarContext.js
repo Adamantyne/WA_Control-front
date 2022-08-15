@@ -7,11 +7,14 @@ export function CalendarProvider(props) {
         currentMonth:new Date().getMonth() + 1,
         openedMonth: new Date().getMonth() + 1
     });
+    const [schedulingData, setSchedulingData] = react.useState(undefined);
 
     return (
         <context.Provider value={{
             calendarData,
-            setCalendarData
+            setCalendarData,
+            schedulingData,
+            setSchedulingData
         }}>
             {props.children}
         </context.Provider>

@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
 
 import { getRequisition } from "../../../utils/api";
 import DefaultScreen from "../../layout/DefaultScreen";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
-import Button from "../../layout/MicroElements/Button";
 import ServiceContainer from "./ServiceContainer";
 import Loader from "../../layout/MicroElements/Loader";
+import NewElementButton from "../../layout/MicroElements/NewElementButton";
+import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
 export default function Services() {
   const [services, setServices] = useState("Carregando");
   const { contextData } = getContext();
-  const { windowState,  openWindow } = getWindowContext();
+  const { windowState, openWindow } = getWindowContext();
+  const bgImage = contextData.backgroundImage;
 
   useEffect(() => {
     if (contextData.config) {
@@ -34,28 +35,32 @@ export default function Services() {
   }
 
   return (
-    <DefaultScreen>
-      <NewServiceButton
-        onClick={() => {
-          openWindow("service");
-        }}
-      >
-        Criar serviço
-      </NewServiceButton>
-      {typeof services === "string"
-        ? <Loader />
-        : services.map((service) => {
+    <GlobalContainer bg={bgImage?.length > 0 ? `url(${bgImage})` : "none"}>
+      <DefaultScreen>
+        <NewElementButton
+          onClick={() => {
+            openWindow("service");
+          }}
+        >
+          Criar serviço
+        </NewElementButton>
+        {typeof services === "string" ? (
+          services === "Carregando" ? (
+            <Loader />
+          ) : (
+            <h2>{services}</h2>
+          )
+        ) : (
+          services.map((service) => {
             return (
               <ServiceContainer
                 key={service.id}
                 serviceData={service}
               ></ServiceContainer>
             );
-          })}
-    </DefaultScreen>
+          })
+        )}
+      </DefaultScreen>
+    </GlobalContainer>
   );
 }
-
-const NewServiceButton = styled(Button)`
-  max-width: var(--page-max-width);
-`;

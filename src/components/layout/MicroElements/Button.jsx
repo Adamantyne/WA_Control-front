@@ -9,7 +9,7 @@ const Button = styled.button`
   font-size: var(--font-size-4);
   border: none;
   color: white;
-  background-color: var(--color-main2);
+  background-color: var(--color-main-2);
   border-radius: var(--border-radious-2);
   :hover {
     cursor: pointer;

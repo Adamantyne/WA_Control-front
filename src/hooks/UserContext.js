@@ -8,7 +8,8 @@ const context = react.createContext();
 
 export function Provider(props) {
   const [contextData, setContext] = react.useState({
-    url: process.env.REACT_APP_URL
+    url: process.env.REACT_APP_URL,
+    backgroundImage:""
   });
 
   useEffect(() => {

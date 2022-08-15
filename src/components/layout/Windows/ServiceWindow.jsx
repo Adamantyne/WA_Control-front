@@ -4,7 +4,7 @@ import { Form } from "../MacroElements/Form";
 import Input from "../MicroElements/Input";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
-import { getRequisition, postRequisition } from "../../../utils/api";
+import { getRequisition, postRequisition, deleteRequisition } from "../../../utils/api";
 import Button from "../MicroElements/Button";
 import InfoLabel from "../MicroElements/InfoLabel";
 import ErrLabel from "../MicroElements/ErrLabel";
@@ -17,7 +17,7 @@ export default function ServiceWindow(props) {
   const [serviceData, setServiceData] = useState({ name: "" });
   const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
-    if (id) {
+    if (id && contextData.config) {
       getData();
     } else {
       setServiceData({ name: "" });
@@ -48,6 +48,17 @@ export default function ServiceWindow(props) {
     } catch (error) {
       console.log(error);
       setErrorMessage(error.toString());
+    }
+  }
+
+  async function deleteService(){
+    try {
+      if(id){
+        await deleteRequisition(`services/${id}`, contextData);
+        closeWindow();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -119,7 +130,7 @@ export default function ServiceWindow(props) {
           </CustonButon>
           <CustonButon
             onClick={() => {
-              closeWindow();
+              deleteService();
             }}
             backgroundColor={"var(--color-error)"}
             width={"48%"}

@@ -4,7 +4,7 @@ import { Form } from "../MacroElements/Form";
 import Input from "../MicroElements/Input";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
-import { getRequisition, postRequisition } from "../../../utils/api";
+import { getRequisition, postRequisition, deleteRequisition } from "../../../utils/api";
 import Button from "../MicroElements/Button";
 import InfoLabel from "../MicroElements/InfoLabel";
 import ErrLabel from "../MicroElements/ErrLabel";
@@ -17,23 +17,26 @@ export default function CustomerWindow(props) {
   const [customerData, setCustomerData] = useState({ name: "" });
   const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
-    if (id) {
-      getData();
+    if (id && contextData.config) {
+      getCustomerData();
     } else {
       setCustomerData({ name: "" });
     }
   }, [id]);
 
-  async function getData() {
+  async function getCustomerData() {
     try {
       const response = await getRequisition(`customers/${id}`, contextData);
+      response.phoneNumber1 = response.phoneNumbers[0].phoneNumber1;
+      response.phoneNumber2 = response.phoneNumbers[0].phoneNumber2;
+      response.phoneNumber3 = response.phoneNumbers[0].phoneNumber4;
       const formateData = deleteAtributes(response);
       setCustomerData(formateData);
     } catch (error) {
       console.log(error);
     }
   }
-  async function submitData(e) {
+  async function submitCustomerData(e) {
     e.preventDefault();
     try {
       if (id) {
@@ -49,9 +52,19 @@ export default function CustomerWindow(props) {
     }
   }
 
+  async function deleteCustomer(){
+    try {
+      if(id){
+        await deleteRequisition(`customers/${id}`, contextData);
+        closeWindow();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
-      <Form onSubmit={submitData}>
+      <Form onSubmit={submitCustomerData}>
         <InfoLabel message={"Nome"} />
         <Input
           type="text"
@@ -152,7 +165,7 @@ export default function CustomerWindow(props) {
           </CustonButon>
           <CustonButon
             onClick={() => {
-              closeWindow();
+              deleteCustomer();
             }}
             backgroundColor={"var(--color-error)"}
             width={"48%"}

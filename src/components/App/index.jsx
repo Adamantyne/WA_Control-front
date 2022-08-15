@@ -14,6 +14,7 @@ import Home from "../routes/Home";
 import Customers from "../routes/Customers";
 import Services from "../routes/Services";
 import Calendar from "../routes/Calendar";
+import Works from "../routes/Works";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/calendar" element={<Calendar />} />
+                <Route path="/works" element={<Works />} />
               </Routes>
             </CalendarProvider>
           </BrowserRouter>

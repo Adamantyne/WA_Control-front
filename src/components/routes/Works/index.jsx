@@ -1,33 +1,33 @@
 import { useState, useEffect } from "react";
 
 import { getRequisition } from "../../../utils/api";
+import DefaultScreen from "../../layout/DefaultScreen";
 import { getContext } from "../../../hooks/UserContext";
 import { getWindowContext } from "../../../hooks/windowContext";
-import DefaultScreen from "../../layout/DefaultScreen";
+import WorkContainer from "./WorkContainer";
 import Loader from "../../layout/MicroElements/Loader";
-import CustomerContainer from "./CustomerContainer";
 import NewElementButton from "../../layout/MicroElements/NewElementButton";
 import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
-export default function Customers() {
-  const [customers, setCustomers] = useState("Carregando");
+export default function Works() {
+  const [works, setWorks] = useState("Carregando");
   const { contextData } = getContext();
   const { windowState, openWindow } = getWindowContext();
   const bgImage = contextData.backgroundImage;
 
   useEffect(() => {
     if (contextData.config) {
-      getCustomers();
+      getWorks();
     }
   }, [contextData, windowState.isOpen]);
 
-  async function getCustomers() {
+  async function getWorks() {
     try {
-      const response = await getRequisition("customers", contextData);
+      const response = await getRequisition("works", contextData);
       if (response.length === 0) {
-        setCustomers("Não há clientes cadastrados");
+        setWorks("Não há trabalhos cadastrados");
       } else {
-        setCustomers(response);
+        setWorks(response);
       }
     } catch (error) {
       console.log(error);
@@ -35,29 +35,24 @@ export default function Customers() {
   }
 
   return (
-    <GlobalContainer bg={bgImage?.length>0?`url(${bgImage})`:"none"}>
+    <GlobalContainer bg={bgImage?.length > 0 ? `url(${bgImage})` : "none"}>
       <DefaultScreen>
         <NewElementButton
           onClick={() => {
-            openWindow("customer");
+            openWindow("createWork");
           }}
         >
-          Criar cliente
+          Criar trabalho
         </NewElementButton>
-        {typeof customers === "string" ? (
-          customers === "Carregando" ? (
+        {typeof works === "string" ? (
+          works === "Carregando" ? (
             <Loader />
           ) : (
-            <h2>{customers}</h2>
+            <h2>{works}</h2>
           )
         ) : (
-          customers.map((customer) => {
-            return (
-              <CustomerContainer
-                key={customer.id}
-                customerData={customer}
-              ></CustomerContainer>
-            );
+          works.map((work) => {
+            return <WorkContainer key={work.id} workData={work} />;
           })
         )}
       </DefaultScreen>

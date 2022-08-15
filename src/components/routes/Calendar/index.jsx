@@ -1,23 +1,32 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import { getContext } from "../../../hooks/UserContext";
-import { getWindowContext } from "../../../hooks/windowContext";
 import DefaultScreen from "../../layout/DefaultScreen";
 import CalendarContainer from "./CalendarContainer";
+import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
-
-export default function Calendar() {
-  const [customers, setCustomers] = useState("Carregando");
-  const { contextData } = getContext();
-  const { windowState, openWindow } = getWindowContext();
+export default function Calendar(props) {
+  const {contextData} = getContext();
+  const bgImage = contextData.backgroundImage;
 
   useEffect(() => {
-    
+    if (contextData.config) {
+      getSchedules();
+    }
   }, []);
 
+  async function getSchedules() {
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <DefaultScreen calendar={true}>
-      <CalendarContainer></CalendarContainer>
-    </DefaultScreen>
+    <GlobalContainer bg={bgImage?.length>0?`url(${bgImage})`:"none"}>
+      <DefaultScreen calendar={true}>
+        <CalendarContainer></CalendarContainer>
+      </DefaultScreen>
+    </GlobalContainer>
   );
 }

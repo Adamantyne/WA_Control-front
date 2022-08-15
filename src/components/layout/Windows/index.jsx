@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { getWindowContext } from "../../../hooks/windowContext";
 import CustomerWindow from "./CustomerWindow";
 import ServiceWindow from "./ServiceWindow";
+import WorkWindow from "./WorkWindows/WorkWindow";
+import CreateWorkWindow from "./WorkWindows/CreateWorkWindow";
 
-export default function Windows(props) {
+export default function Windows() {
   const { windowState } = getWindowContext();
   const { id, type, isOpen } = windowState;
 
@@ -13,6 +15,8 @@ export default function Windows(props) {
       <WindowContainer isOpen={isOpen}>
         {type==="customer"?<CustomerWindow id={id}/>:""}
         {type==="service"?<ServiceWindow id={id}/>:""}
+        {type==="work"?<WorkWindow id={id}/>:""}
+        {type==="createWork"?<CreateWorkWindow id={id}/>:""}
       </WindowContainer>
     </BackgroundWindow>
   );
@@ -33,7 +37,9 @@ const BackgroundWindow = styled.section`
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   width: 100%;
   height: 100%;
-  background-color: var(--color-purple);
+  background-color: var(--white-window);
+  border-left: var(--white-border);
+  border-radius: 10px 0 0 10px;
   justify-content: center;
   align-items: center;
   position: sticky;
