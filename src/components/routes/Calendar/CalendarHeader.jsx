@@ -2,12 +2,9 @@ import styled from "styled-components";
 
 import MonthInput from "./MonthInput";
 import weekNames from "./getWeekNames";
-import { getCalendarContext } from "../../../hooks/calendarContext";
 
 export default function CalendarHeader(props) {
-  const {montlyCalendar,setCalendar} = props;
-  const {calendarData}=getCalendarContext();
-  const {currentMonth} = calendarData;
+  const { montlyCalendar, setCalendar } = props;
 
   return (
     <CalendarHeaderContainer>
@@ -24,7 +21,6 @@ export default function CalendarHeader(props) {
     </CalendarHeaderContainer>
   );
 }
-
 
 const CalendarHeaderContainer = styled.section`
   background-color: var(--color-main-2);
@@ -47,7 +43,7 @@ const DaysCell = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  font-weight:var(--font-bold);
+  font-weight: var(--font-bold);
   h2 {
     font-size: var(--font-size-4);
   }

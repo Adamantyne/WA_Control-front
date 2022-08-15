@@ -1,15 +1,35 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { BsPersonCircle,BsFillCalendarWeekFill,BsFillGearFill } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowBack, IoIosArrowForward, IoIosExit } from "react-icons/io";
+import {
+  BsPersonCircle,
+  BsFillCalendarWeekFill,
+  BsFillGearFill,
+} from "react-icons/bs";
 import { AiFillHome, AiFillTool } from "react-icons/ai";
 
 import { getWindowContext } from "../../../hooks/windowContext";
 import { getSidebarContext } from "../../../hooks/sidebarContext";
+import { postRequisition } from "../../../utils/api";
+import { getContext } from "../../../hooks/UserContext";
+import { deleteItem } from "../../../utils/localStorage";
 
 export default function Sidebar() {
-  const {sidebarIsOpen, setSidebarIsOpen} = getSidebarContext();
+  const { sidebarIsOpen, setSidebarIsOpen } = getSidebarContext();
   const { closeWindow } = getWindowContext();
+  const {contextData} = getContext();
+  const navigate = useNavigate();
+
+  async function signOut() {
+    try {
+      await postRequisition("sign-out", contextData, "");
+      deleteItem("token");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <SidebarContainer>
       {sidebarIsOpen === true ? (
@@ -23,31 +43,40 @@ export default function Sidebar() {
           onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
         />
       )}
-      <Link to={"/home"} onClick={()=>closeWindow()}>
+      <Link to={"/home"} onClick={() => closeWindow()}>
         <SidebarOption>
           <AiFillHome />
         </SidebarOption>
       </Link>
-      <Link to={"/works"} onClick={()=>closeWindow()}>
+      <Link to={"/works"} onClick={() => closeWindow()}>
         <SidebarOption>
           <BsFillGearFill />
         </SidebarOption>
       </Link>
-      <Link to={"/customers"} onClick={()=>closeWindow()}>
+      <Link to={"/customers"} onClick={() => closeWindow()}>
         <SidebarOption>
           <BsPersonCircle />
         </SidebarOption>
       </Link>
-      <Link to={"/services"} onClick={()=>closeWindow()}>
+      <Link to={"/services"} onClick={() => closeWindow()}>
         <SidebarOption>
           <AiFillTool />
         </SidebarOption>
       </Link>
-      <Link to={"/calendar"} onClick={()=>closeWindow()}>
+      <Link to={"/calendar"} onClick={() => closeWindow()}>
         <SidebarOption>
           <BsFillCalendarWeekFill />
         </SidebarOption>
       </Link>
+      <div>
+        <SidebarOption>
+          <IoIosExit
+            onClick={() => {
+              signOut();
+            }}
+          />
+        </SidebarOption>
+      </div>
     </SidebarContainer>
   );
 }
