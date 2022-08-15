@@ -63,8 +63,8 @@ function HourCell(props) {
       }}
     >
       {works.map((work) => {
-        const budgetDate = dayjs(work.deliveryDate).format(dateFormat);
-        const deliveryDate = dayjs(work.budgetDate).format(dateFormat);
+        const deliveryDate = dayjs(work.deliveryDate).format(dateFormat);
+        const budgetDate = dayjs(work.budgetDate).format(dateFormat);
         if (date === budgetDate) {
           return (
             <ScheduleCell key={work.id} customerName={work.customer.name} type={"Orçamento"} />

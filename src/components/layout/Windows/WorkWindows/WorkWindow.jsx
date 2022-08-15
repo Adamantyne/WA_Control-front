@@ -66,7 +66,6 @@ export default function WorkWindow(props) {
       if (workData.delivered) {
         requestData.delivered = workData.delivered;
       }
-      console.log(requestData);
       await postRequisition(`works/${id}`, contextData, requestData);
 
       closeWindow();
