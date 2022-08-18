@@ -20,7 +20,6 @@
 
   /* geral colors */
 	--color-main:#2600ff;
-  --color-main2:#6e55ff;
   --color-main-2:#583bfc;
   --color-main-3:rgba(66, 5, 180, 0.7);
   --color-main-4:rgba(143, 82, 255, 0.4);
@@ -59,6 +58,7 @@
   --border-radious-2:10px;
   --input-border:2px solid var(--color-main-2);
   --white-border:1px solid var(--color-white);
+  --hover-border: inset 1px 1px 1px var(--color-hover);
 
   /* calendar*/
   --cell-width:250px;

@@ -1,67 +1,21 @@
-import { useState, useEffect } from "react";
+import { Form } from "../../MacroElements/Form";
+import Input from "../../MicroElements/Input";
 
-import { Form } from "../MacroElements/Form";
-import Input from "../MicroElements/Input";
-import { getContext } from "../../../hooks/UserContext";
-import { getWindowContext } from "../../../hooks/windowContext";
-import { getRequisition, postRequisition, deleteRequisition } from "../../../utils/api";
-import Button from "../MicroElements/Button";
-import InfoLabel from "../MicroElements/InfoLabel";
-import ErrLabel from "../MicroElements/ErrLabel";
-import CustonButon from "../MicroElements/CustomButton";
+import Button from "../../MicroElements/Button";
+import InfoLabel from "../../MicroElements/InfoLabel";
+import ErrLabel from "../../MicroElements/ErrLabel";
+import CustonButon from "../../MicroElements/CustomButton";
 
-export default function ServiceWindow(props) {
-  const { id } = props;
-  const { contextData } = getContext();
-  const { closeWindow, deleteAtributes } = getWindowContext();
-  const [serviceData, setServiceData] = useState({ name: "" });
-  const [errorMessage, setErrorMessage] = useState("");
-  useEffect(() => {
-    if (id && contextData.config) {
-      getData();
-    } else {
-      setServiceData({ name: "" });
-    }
-  }, [id]);
-
-  async function getData() {
-    try {
-      const response = await getRequisition(`services/${id}`, contextData);
-      const formateData = deleteAtributes(response);
-      setServiceData(formateData);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  async function submitData(e) {
-    e.preventDefault();
-    try {
-      if (id) {
-        const formateData = deleteAtributes(serviceData);
-        await postRequisition(`services/${id}`, contextData, {
-          ...formateData,
-        });
-      } else {
-        await postRequisition(`services`, contextData, serviceData);
-      }
-      closeWindow();
-    } catch (error) {
-      console.log(error);
-      setErrorMessage(error.toString());
-    }
-  }
-
-  async function deleteService(){
-    try {
-      if(id){
-        await deleteRequisition(`services/${id}`, contextData);
-        closeWindow();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
+export default function ServiceWindowForm(props) {
+  const {
+    submitData,
+    serviceData,
+    setServiceData,
+    errorMessage,
+    closeWindow,
+    id,
+    deleteService,
+  } = props;
   return (
     <>
       <Form onSubmit={submitData}>
@@ -93,11 +47,10 @@ export default function ServiceWindow(props) {
           required
           value={serviceData.value ? `R$ ${serviceData.value / 100}` : "R$"}
           onChange={(e) => {
-            const formatedValue = e.target.value
-              .replace("R$", "")
+            const formatedValue = e.target.value.replace("R$", "").replace(",",".");
             setServiceData({
               ...serviceData,
-              value: parseInt(formatedValue*100),
+              value: parseInt(formatedValue * 100),
             });
           }}
         />
@@ -121,7 +74,7 @@ export default function ServiceWindow(props) {
             onClick={() => {
               closeWindow();
             }}
-            backgroundColor={"var(--color-main2)"}
+            backgroundColor={"var(--color-main-2)"}
             width={"48%"}
             hoverBackgroundColor={"var(--color-main)"}
             margin={"10px 0 10px 0"}

@@ -13,6 +13,7 @@ const Page = styled.div`
   flex-direction: column;
   align-items: center;
   padding: var(--page-padding);
+  margin-right: 5%;
   h2 {
     font-size: var(--font-size-5);
     margin-bottom: 10px;

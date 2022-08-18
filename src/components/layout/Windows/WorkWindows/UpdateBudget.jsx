@@ -86,7 +86,7 @@ export default function UpdateBudget(props) {
           </ComboBox>
           <CustonButon
             type="submit"
-            backgroundColor={"var(--color-main2)"}
+            backgroundColor={"var(--color-main-2)"}
             width={"60px%"}
             hoverBackgroundColor={"var(--color-main)"}
             margin={"none"}

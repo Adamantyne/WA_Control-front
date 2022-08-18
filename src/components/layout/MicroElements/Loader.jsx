@@ -28,7 +28,7 @@ const Container = styled.article`
   p {
     font-size: 22px;
     letter-spacing: 0.05em;
-    color: #6d6d6d;
+    color: var(--color-main);
   }
   span {
     margin-bottom: 16px;
@@ -36,7 +36,7 @@ const Container = styled.article`
     height: 48px;
     border-radius: 50%;
     display: inline-block;
-    border-top: 3px solid #6d6d6d;
+    border-top: 3px solid var(--hover-color);
     border-right: 3px solid transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;

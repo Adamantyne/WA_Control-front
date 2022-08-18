@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import { getWindowContext } from "../../../hooks/windowContext";
-import CustomerWindow from "./CustomerWindow";
-import ServiceWindow from "./ServiceWindow";
+import CustomerWindow from "./customerWindows";
+import ServiceWindow from "./ServiceWindows";
 import WorkWindow from "./WorkWindows/WorkWindow";
 import CreateWorkWindow from "./WorkWindows/CreateWorkWindow";
 
@@ -37,7 +37,6 @@ const BackgroundWindow = styled.section`
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   width: 100%;
   height: 100%;
-  background-color: var(--white-window);
   border-left: var(--white-border);
   border-radius: 10px 0 0 10px;
   justify-content: center;

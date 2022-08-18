@@ -1,67 +1,22 @@
-import { useState, useEffect } from "react";
+import { Form } from "../../MacroElements/Form";
+import Input from "../../MicroElements/Input";
 
-import { Form } from "../MacroElements/Form";
-import Input from "../MicroElements/Input";
-import { getContext } from "../../../hooks/UserContext";
-import { getWindowContext } from "../../../hooks/windowContext";
-import { getRequisition, postRequisition, deleteRequisition } from "../../../utils/api";
-import Button from "../MicroElements/Button";
-import InfoLabel from "../MicroElements/InfoLabel";
-import ErrLabel from "../MicroElements/ErrLabel";
-import CustonButon from "../MicroElements/CustomButton";
+import Button from "../../MicroElements/Button";
+import InfoLabel from "../../MicroElements/InfoLabel";
+import ErrLabel from "../../MicroElements/ErrLabel";
+import CustonButon from "../../MicroElements/CustomButton";
 
-export default function CustomerWindow(props) {
-  const { id } = props;
-  const { contextData } = getContext();
-  const { closeWindow, deleteAtributes } = getWindowContext();
-  const [customerData, setCustomerData] = useState({ name: "" });
-  const [errorMessage, setErrorMessage] = useState("");
-  useEffect(() => {
-    if (id && contextData.config) {
-      getCustomerData();
-    } else {
-      setCustomerData({ name: "" });
-    }
-  }, [id]);
+export default function FormCustomerWindow(props) {
+  const {
+    submitCustomerData,
+    customerData,
+    setCustomerData,
+    errorMessage,
+    closeWindow,
+    deleteCustomer,
+    id,
+  } = props;
 
-  async function getCustomerData() {
-    try {
-      const response = await getRequisition(`customers/${id}`, contextData);
-      response.phoneNumber1 = response.phoneNumbers[0].phoneNumber1;
-      response.phoneNumber2 = response.phoneNumbers[0].phoneNumber2;
-      response.phoneNumber3 = response.phoneNumbers[0].phoneNumber4;
-      const formateData = deleteAtributes(response);
-      setCustomerData(formateData);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  async function submitCustomerData(e) {
-    e.preventDefault();
-    try {
-      if (id) {
-        const formateData = deleteAtributes(customerData);
-        await postRequisition(`customers/${id}`, contextData, formateData);
-      } else {
-        await postRequisition(`customers`, contextData, customerData);
-      }
-      closeWindow();
-    } catch (error) {
-      console.log(error);
-      setErrorMessage(error.toString());
-    }
-  }
-
-  async function deleteCustomer(){
-    try {
-      if(id){
-        await deleteRequisition(`customers/${id}`, contextData);
-        closeWindow();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
   return (
     <>
       <Form onSubmit={submitCustomerData}>
@@ -156,7 +111,7 @@ export default function CustomerWindow(props) {
             onClick={() => {
               closeWindow();
             }}
-            backgroundColor={"var(--color-main2)"}
+            backgroundColor={"var(--color-main-2)"}
             width={"48%"}
             hoverBackgroundColor={"var(--color-main)"}
             margin={"10px 0 10px 0"}

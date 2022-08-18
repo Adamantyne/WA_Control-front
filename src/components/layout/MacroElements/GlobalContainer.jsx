@@ -10,7 +10,7 @@ const GlobalContainer = styled.main`
   display: flex;
   align-items: flex-start;
   background-image: ${(props) => props.bg};
-  background-size: cover;
+  background-size: contain;
 `;
 
 export default GlobalContainer;

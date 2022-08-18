@@ -25,27 +25,12 @@ export function ProviderWindow(props) {
     });
   }
 
-  function deleteAtributes(data) {
-    delete data?.phoneNumbers;
-    delete data?.userId;
-    delete data?.id;
-    delete data?.createAt
-    delete data?.deleteAt
-    if (!data?.establishment) delete data.establishment;
-    if (!data?.address) delete data.address;
-    if (!data?.phoneNumber1) delete data.phoneNumber1;
-    if (!data?.phoneNumber2) delete data.phoneNumber2;
-    if (!data?.phoneNumber3) delete data.phoneNumber3;
-    if (!data?.description) delete data.description;
-    return data;
-  }
 
   return (
     <context.Provider value={{
       windowState,
       setWindowState,
       closeWindow,
-      deleteAtributes,
       openWindow
     }}>
       {props.children}

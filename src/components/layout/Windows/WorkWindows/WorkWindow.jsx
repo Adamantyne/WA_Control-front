@@ -92,7 +92,7 @@ export default function WorkWindow(props) {
       )}
       <CustonButon
         type="submit"
-        backgroundColor={"var(--color-main2)"}
+        backgroundColor={"var(--color-main-2)"}
         width={"100%"}
         hoverBackgroundColor={"var(--color-main)"}
         margin={"25px 0 10px 0"}
@@ -104,7 +104,7 @@ export default function WorkWindow(props) {
         onClick={() => {
           closeWindow();
         }}
-        backgroundColor={"var(--color-main2)"}
+        backgroundColor={"var(--color-main-2)"}
         width={"100%"}
         hoverBackgroundColor={"var(--color-main)"}
         margin={"10px 0 0 0"}

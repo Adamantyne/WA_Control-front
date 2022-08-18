@@ -22,7 +22,6 @@ export default function SignIn() {
 
   async function checkToken() {
     try {
-      console.log("conectando automagicamente");
       await getRequisition("token", contextData);
       navigate("/home");
     } catch (error) {
