@@ -43,7 +43,7 @@ export default function Home() {
   function findTodayWorks(works) {
     return works.filter((work) => {
       const budgetDate = work.budgetDate?.slice(0, 10);
-      const deliveryDate = work.delivery?.slice(0, 10);
+      const deliveryDate = work.deliveryDate?.slice(0, 10);
       const todayDate = dayjs().format("MM/DD/YYYY");
       if (
         (budgetDate === todayDate && !work.budget) ||
