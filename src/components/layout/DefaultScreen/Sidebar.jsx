@@ -52,7 +52,7 @@ export default function Sidebar() {
         </Link>
         <Link to={"/works"} onClick={() => closeWindow()}>
           <SidebarOption>
-            <h2>Home</h2>
+            <h2>Trabalhos</h2>
             <BsFillGearFill />
           </SidebarOption>
         </Link>
