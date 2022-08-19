@@ -8,19 +8,16 @@ import { getRequisition, postRequisition } from "../../../../utils/api";
 import CustonButon from "../../MicroElements/CustomButton";
 import UpdateBudget from "./UpdateBudget";
 import UpdateDelivery from "./UpdateDelivery";
+import updateObj from "../../../../utils/updateObj";
 
 export default function WorkWindow(props) {
   const { id } = props;
   const { contextData } = getContext();
   const { closeWindow } = getWindowContext();
-  const [workData, setWorkData] = useState({
-    id: "",
-    customerId: 0,
-    description: "",
-  });
+  const [workData, setWorkData] = useState({});
+  const [currentWork, setCurrentWork] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [customerNumbers, setCustomerNumbers] = useState({});
-  const [currentState, setCurrentState] = useState({budget:null});
 
   useEffect(() => {
     if (id && contextData.config) {
@@ -34,7 +31,7 @@ export default function WorkWindow(props) {
       const response = await getRequisition(`works/${id}`, contextData);
       setWorkData(response);
       getcustomerNumbers(response.customerId);
-      setCurrentState(response);
+      setCurrentWork(response);
     } catch (error) {
       console.log(error);
     }
@@ -50,22 +47,7 @@ export default function WorkWindow(props) {
   async function submitData(e) {
     e.preventDefault();
     try {
-      const requestData = {};
-      if (workData.budget) {
-        requestData.budget = workData.budget;
-      }
-      if (workData.budgetDate) {
-        requestData.budgetDate = workData.budgetDate;
-      }
-      if (workData.deliveryDate) {
-        requestData.deliveryDate = workData.deliveryDate;
-      }
-      if (workData.description) {
-        requestData.description = workData.description;
-      }
-      if (workData.delivered) {
-        requestData.delivered = workData.delivered;
-      }
+      const requestData = updateObj(currentWork, workData)
       await postRequisition(`works/${id}`, contextData, requestData);
 
       closeWindow();
@@ -76,7 +58,7 @@ export default function WorkWindow(props) {
   }
   return (
     <WorkForm onSubmit={submitData}>
-      {currentState.budget ? (
+      {currentWork.budget ? (
         <UpdateDelivery
           setWorkData={setWorkData}
           workData={workData}
@@ -113,11 +95,6 @@ export default function WorkWindow(props) {
       </CustonButon>
     </WorkForm>
   );
-}
-
-function ComboBoxCustomers(props) {
-  const { name, id } = props;
-  return <option value={id}>{name}</option>;
 }
 
 const WorkForm = styled(Form)`

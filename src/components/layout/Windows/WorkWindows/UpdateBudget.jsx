@@ -36,7 +36,7 @@ export default function UpdateBudget(props) {
         <Input
           type="text"
           placeholder="MM/DD/AAAA,hh:mm"
-          maxLength={15}
+          maxLength={16}
           value={workData.budgetDate ? workData.budgetDate : ""}
           onChange={(e) =>
             setWorkData({ ...workData, budgetDate: e.target.value })

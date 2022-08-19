@@ -33,7 +33,7 @@ export default function UpdateDelivery(props) {
         <Input
           type="text"
           placeholder="MM/DD/AAAA,hh:mm"
-          maxLength={15}
+          maxLength={16}
           value={workData.deliveryDate ? workData.deliveryDate : ""}
           onChange={(e) =>
             setWorkData({ ...workData, deliveryDate: e.target.value })
@@ -58,7 +58,8 @@ export default function UpdateDelivery(props) {
       <ComboBox
         defaultValue={workData.delivered}
         onChange={(e) => {
-          setWorkData({ ...workData, delivered: e.target.value });
+          const value = e.target.value==="true"?true:false;
+          setWorkData({ ...workData, delivered: value });
         }}
       >
         <option value={false}>não</option>
