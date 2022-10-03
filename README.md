@@ -1,5 +1,5 @@
 # WA_Control
-WA_Control é uma aplicação de controle do fluxo de trabalho para microempreendimentos de forma simpes e prática.
+WA_Control é uma aplicação de controle do fluxo de trabalho para microempreendimentos de forma simples e prática.
 
 **Ferramentas:** JavaScript, JSX, HTML, CSS, React, Styled-Components
 
