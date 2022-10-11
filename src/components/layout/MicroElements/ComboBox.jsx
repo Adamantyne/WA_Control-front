@@ -9,7 +9,7 @@ const ComboBox = styled.select`
   font-weight: var(--font-bold);
   background-color: var(--color-white);
   min-width: var(--month-inputh-width);
-  height: var(--month-inputh-heigth);
+  min-height: var(--month-inputh-heigth);
   font-size: var(--font-size-3);
   border-radius: var(--border-radious-1);
   border: var(--input-border);

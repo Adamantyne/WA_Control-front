@@ -1,7 +1,7 @@
 
 import months from "./getMonthNames";
-import { getCalendarContext } from "../../../hooks/calendarContext";
-import ComboBox from "../../layout/MicroElements/ComboBox";
+import { getCalendarContext } from "../../../../hooks/calendarContext";
+import ComboBox from "../../../layout/MicroElements/ComboBox";
 
 export default function MonthInput(props) {
   const {setCalendar} = props;

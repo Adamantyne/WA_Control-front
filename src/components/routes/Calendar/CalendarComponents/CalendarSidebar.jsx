@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-import { hours } from "./getHours";
+import  hours  from "../calendarUtilities/getHours";
+import MonthInput from "../calendarUtilities/MonthInput";
 
-export default function CalendarSidebar() {
+export default function CalendarSidebar(props) {
+  const {  setCalendar } = props;
   return (
     <CalendarSidebarContainer>
+      <MonthInput setCalendar={setCalendar} />
       {hours.map((hour) => {
         return <HourCell key={`${hour}`}>{hour}</HourCell>;
       })}
@@ -21,6 +24,7 @@ const CalendarSidebarContainer = styled.section`
   width: 100%;
   height: 100%;
   width: var(--month-inputh-width);
+  z-index: 2;
 `;
 const HourCell = styled.article`
   display: flex;
@@ -34,5 +38,4 @@ const HourCell = styled.article`
   background-color: var(--color-main-2);
   color: var(--color-white);
   box-shadow: var(--white-border);
-  z-index: 1;
 `;

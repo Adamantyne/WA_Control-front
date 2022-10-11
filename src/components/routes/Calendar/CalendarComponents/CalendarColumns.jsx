@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import dayjs from "dayjs";
-import { useState } from "react";
 
-import { hours } from "./getHours";
-import { getCalendarContext } from "../../../hooks/calendarContext";
-import { postRequisition } from "../../../utils/api";
-import { getContext } from "../../../hooks/UserContext";
+import  hours  from "../calendarUtilities/getHours";
+import { getCalendarContext } from "../../../../hooks/calendarContext";
+import { postRequisition } from "../../../../utils/api";
+import { getContext } from "../../../../hooks/UserContext";
 
 export default function CalendarColumns(props) {
   const { day, works } = props;
@@ -67,11 +66,19 @@ function HourCell(props) {
         const budgetDate = dayjs(work.budgetDate).format(dateFormat);
         if (date === budgetDate) {
           return (
-            <ScheduleCell key={work.id} customerName={work.customer.name} type={"Orçamento"} />
+            <ScheduleCell
+              key={work.id}
+              customerName={work.customer.name}
+              type={"Orçamento"}
+            />
           );
-        } else if (date === deliveryDate) {
+        } if (date === deliveryDate) {
           return (
-            <ScheduleCell key={work.id} customerName={work.customer.name} type={"Entrega"} />
+            <ScheduleCell
+              key={work.id}
+              customerName={work.customer.name}
+              type={"Entrega"}
+            />
           );
         }
       })}

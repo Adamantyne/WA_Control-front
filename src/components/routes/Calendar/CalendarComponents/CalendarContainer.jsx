@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
-import { getContext } from "../../../hooks/UserContext";
-import { getRequisition } from "../../../utils/api";
+import { getContext } from "../../../../hooks/UserContext";
+import { getRequisition } from "../../../../utils/api";
 import CalendarHeader from "./CalendarHeader";
 import CalendarSidebar from "./CalendarSidebar";
 import CalendarColumns from "./CalendarColumns";
-import { getWindowContext } from "../../../hooks/windowContext";
-import { getCalendarContext } from "../../../hooks/calendarContext";
+import { getWindowContext } from "../../../../hooks/windowContext";
+import { getCalendarContext } from "../../../../hooks/calendarContext";
 
 export default function CalendarContainer() {
   const [montlyCalendar, setMontlyCalendar] = useState([[]]);
@@ -49,35 +49,42 @@ export default function CalendarContainer() {
   }
   return (
     <GblobalContainer>
+      <CalendarSidebar setCalendar={setCalendar}/>
+      <Container>
       <CalendarHeader
         currentMonth={currentMonth}
         montlyCalendar={montlyCalendar}
-        setCalendar={setCalendar}
       />
-      <Container>
-        <CalendarSidebar />
+      <CalendarBody>
         {montlyCalendar[0].map((dataDay) => {
           const day = dataDay.day;
           return <CalendarColumns works={works} key={day} day={day} />;
         })}
+      </CalendarBody>
       </Container>
     </GblobalContainer>
   );
 }
 
+const CalendarBody = styled.section`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`;
+
 const Container = styled.section`
   width: 100%;
-  height: 85vh;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  z-index: 1;
 `;
 
 const GblobalContainer = styled.section`
   margin-top: 10px;
   max-width: 79vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   overflow: auto;
+  height: 85vh;
 `;
 

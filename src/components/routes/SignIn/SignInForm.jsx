@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { AuthForm } from "../../layout/MacroElements/Form";
 import ErrLabel from "../../layout/MicroElements/ErrLabel";

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { getContext } from "../../../hooks/UserContext";
 import DefaultScreen from "../../layout/DefaultScreen";
-import CalendarContainer from "./CalendarContainer";
+import CalendarContainer from "./CalendarComponents/CalendarContainer";
 import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
 export default function Calendar(props) {

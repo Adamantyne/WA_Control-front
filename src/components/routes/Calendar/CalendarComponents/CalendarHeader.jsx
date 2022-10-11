@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-import MonthInput from "./MonthInput";
-import weekNames from "./getWeekNames";
+import weekNames from "../calendarUtilities/getWeekNames";
 
 export default function CalendarHeader(props) {
   const { montlyCalendar, setCalendar } = props;
 
   return (
     <CalendarHeaderContainer>
-      <MonthInput setCalendar={setCalendar} />
       {montlyCalendar[0].map((dayOfCalendar) => {
         const { day, dayOfWeek } = dayOfCalendar;
         return (
@@ -28,8 +26,7 @@ const CalendarHeaderContainer = styled.section`
   top: 0;
   display: flex;
   width: 100%;
-  height: 100%;
-  z-index: 2;
+  max-height: var(--month-inputh-heigth);
 `;
 
 const DaysCell = styled.article`
@@ -37,7 +34,7 @@ const DaysCell = styled.article`
   box-shadow: var(--white-border);
   padding: 5px 0 5px 0;
   min-width: var(--cell-width);
-  max-height: var(--month-inputh-heigth);
+  max-height: 100%;
   color: var(--color-white);
   display: flex;
   flex-direction: column;
