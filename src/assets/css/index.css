@@ -61,8 +61,8 @@
   --hover-border: inset 1px 1px 1px var(--color-hover);
 
   /* calendar*/
-  --cell-width:250px;
-  --cell-heigth:130px;
+  --cell-width:220px;
+  --cell-heigth:110px;
   --month-inputh-width:100px;
   --month-inputh-heigth:42px;
   --cell-border: inset 1px 1px 1px var(--color-main);

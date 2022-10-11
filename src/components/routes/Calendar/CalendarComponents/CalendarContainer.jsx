@@ -85,6 +85,6 @@ const GblobalContainer = styled.section`
   max-width: 79vw;
   display: flex;
   overflow: auto;
-  height: 85vh;
+  height: 93vh;
 `;
 
