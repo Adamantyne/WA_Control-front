@@ -3,7 +3,7 @@ import styled from "styled-components";
 import weekNames from "../calendarUtilities/getWeekNames";
 
 export default function CalendarHeader(props) {
-  const { montlyCalendar, setCalendar } = props;
+  const { montlyCalendar } = props;
 
   return (
     <CalendarHeaderContainer>

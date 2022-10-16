@@ -15,20 +15,20 @@ export default function CalendarContainer() {
   const [works, setWorks] = useState([]);
   const currentMonth = new Date().getMonth() + 1;
   const { contextData } = getContext();
-  const {  schedulingData } = getCalendarContext();
+  const { schedulingData } = getCalendarContext();
   const { windowState } = getWindowContext();
 
   useEffect(() => {
     if (contextData.config) {
       buildCalendar();
     }
-  }, [contextData,windowState.isOpen, schedulingData]);
+  }, [contextData, windowState.isOpen, schedulingData]);
 
-  async function buildCalendar(){
+  async function buildCalendar() {
     await getWorks();
     setCalendar(currentMonth);
   }
-  
+
   async function getWorks() {
     try {
       const response = await getRequisition("works", contextData);
@@ -49,18 +49,18 @@ export default function CalendarContainer() {
   }
   return (
     <GblobalContainer>
-      <CalendarSidebar setCalendar={setCalendar}/>
+      <CalendarSidebar setCalendar={setCalendar} />
       <Container>
-      <CalendarHeader
-        currentMonth={currentMonth}
-        montlyCalendar={montlyCalendar}
-      />
-      <CalendarBody>
-        {montlyCalendar[0].map((dataDay) => {
-          const day = dataDay.day;
-          return <CalendarColumns works={works} key={day} day={day} />;
-        })}
-      </CalendarBody>
+        <CalendarHeader
+          currentMonth={currentMonth}
+          montlyCalendar={montlyCalendar}
+        />
+        <CalendarBody>
+          {montlyCalendar[0].map((dataDay) => {
+            const day = dataDay.day;
+            return <CalendarColumns works={works} key={day} day={day} />;
+          })}
+        </CalendarBody>
       </Container>
     </GblobalContainer>
   );
@@ -82,9 +82,8 @@ const Container = styled.section`
 
 const GblobalContainer = styled.section`
   margin-top: 10px;
-  max-width: 79vw;
+  max-width: var(--calendar-max-width);
+  height: var(--calendar-heigth);
   display: flex;
   overflow: auto;
-  height: 93vh;
 `;
-

@@ -24,7 +24,8 @@
   --color-main-3:rgba(66, 5, 180, 0.7);
   --color-main-4:rgba(143, 82, 255, 0.4);
   --color-main-5:#8067f1;
-  --hover-color:#fd3d5d;
+  --hover-color:#00e3f3;
+  --hover-color-2:rgba(117, 50, 243, 0.7);;
 	--color-white:#ffffff;
 	--color-black:#171717;
 	--color-grey:#CECECE;
@@ -61,14 +62,16 @@
   --hover-border: inset 1px 1px 1px var(--color-hover);
 
   /* calendar*/
-  --cell-width:220px;
+  --cell-width:180px;
   --cell-heigth:110px;
-  --month-inputh-width:100px;
-  --month-inputh-heigth:42px;
+  --cell-padding: 5px;
   --cell-border: inset 1px 1px 1px var(--color-main);
+  --month-inputh-width:110px;
+  --month-inputh-heigth:42px;
   --white-border: inset 1px 1px 1px var(--color-white);
   --schedule-min-height:70px;
-  --cell-padding: 5px;
+  --calendar-max-width: 79vw;
+  --calendar-heigth: 90vh;
 }
 
 body {

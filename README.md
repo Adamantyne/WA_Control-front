@@ -1,4 +1,5 @@
 # WA_Control
+
 WA_Control é uma aplicação de controle do fluxo de trabalho para microempreendimentos de forma simples e prática.
 
 **Ferramentas:** JavaScript, JSX, HTML, CSS, React, Styled-Components
@@ -27,6 +28,7 @@ HTTPS: `$ git clone https://github.com/Adamantyne/WA_Control-front.git`
 <br />
 <br />
 **Importante:** para executar o projeto, são necessários algusn pré-requisitos:
+
 - Back-end configurado e rodando localmente ( <a target="_blank" href="https://github.com/Adamantyne/WA_Control-back">https://github.com/Adamantyne/WA_Control-back </a>);
 - Node/npm;
 - Banco de dados PostgreSQL;

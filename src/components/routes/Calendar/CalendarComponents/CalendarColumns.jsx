@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import dayjs from "dayjs";
 
-import  hours  from "../calendarUtilities/getHours";
+import hours from "../calendarUtilities/getHours";
 import { getCalendarContext } from "../../../../hooks/calendarContext";
 import { postRequisition } from "../../../../utils/api";
 import { getContext } from "../../../../hooks/UserContext";
@@ -64,23 +64,28 @@ function HourCell(props) {
       {works.map((work) => {
         const deliveryDate = dayjs(work.deliveryDate).format(dateFormat);
         const budgetDate = dayjs(work.budgetDate).format(dateFormat);
-        if (date === budgetDate) {
-          return (
-            <ScheduleCell
-              key={work.id}
-              customerName={work.customer.name}
-              type={"Orçamento"}
-            />
-          );
-        } if (date === deliveryDate) {
-          return (
-            <ScheduleCell
-              key={work.id}
-              customerName={work.customer.name}
-              type={"Entrega"}
-            />
-          );
-        }
+        return (
+          <>
+            {date === budgetDate ? (
+              <ScheduleCell
+                key={work.id}
+                customerName={work.customer.name}
+                type={"Orçamento"}
+              />
+            ) : (
+              <></>
+            )}
+            {date === deliveryDate ? (
+              <ScheduleCell
+                key={work.id}
+                customerName={work.customer.name}
+                type={"Entrega"}
+              />
+            ) : (
+              <></>
+            )}
+          </>
+        );
       })}
     </HourCellContainer>
   );
