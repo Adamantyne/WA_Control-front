@@ -7,6 +7,7 @@ const CalendarPage = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-left: var(--sidebar-min-width);
 `;
 
 export default CalendarPage;

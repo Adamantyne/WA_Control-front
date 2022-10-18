@@ -37,8 +37,6 @@ const BackgroundWindow = styled.section`
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   width: 100%;
   height: 100%;
-  border-left: var(--white-border);
-  border-radius: 10px 0 0 10px;
   justify-content: center;
   align-items: center;
   position: sticky;

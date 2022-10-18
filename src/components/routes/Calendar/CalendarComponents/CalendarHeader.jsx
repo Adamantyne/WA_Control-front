@@ -31,7 +31,7 @@ const CalendarHeaderContainer = styled.section`
 
 const DaysCell = styled.article`
   background-color: var(--color-main-2);
-  box-shadow: var(--white-border);
+  box-shadow: var(--inset-white-border);
   padding: 5px 0 5px 0;
   min-width: var(--cell-width);
   max-height: 100%;

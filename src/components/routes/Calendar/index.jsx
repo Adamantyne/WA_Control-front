@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 import { BsFillGearFill } from "react-icons/bs";
 
@@ -11,18 +10,6 @@ export default function Calendar(props) {
   const { contextData } = getContext();
   const bgImage = contextData.backgroundImage;
 
-  useEffect(() => {
-    if (contextData.config) {
-      getSchedules();
-    }
-  });
-
-  async function getSchedules() {
-    try {
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <GlobalContainer bg={bgImage?.length > 0 ? `url(${bgImage})` : "none"}>

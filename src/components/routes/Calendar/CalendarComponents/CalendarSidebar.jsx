@@ -37,5 +37,5 @@ const HourCell = styled.article`
   font-weight:var(--font-bold);
   background-color: var(--color-main-2);
   color: var(--color-white);
-  box-shadow: var(--white-border);
+  box-shadow: var(--inset-white-border);
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Sidebar from "./Sidebar";
-import Page from "./Page";
+import DefaultPage from "./DefaultPage";
 import Windows from "../Windows";
 import CalendarPage from "./CalendarPage";
 
@@ -13,7 +13,7 @@ export default function DefaultScreen(props) {
       {calendar?
       <CalendarPage>{props.children}</CalendarPage>:
       <>
-      <Page>{props.children}</Page>
+      <DefaultPage>{props.children}</DefaultPage>
       <Windows />
       </>
       }

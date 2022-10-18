@@ -65,10 +65,10 @@ function HourCell(props) {
         const deliveryDate = dayjs(work.deliveryDate).format(dateFormat);
         const budgetDate = dayjs(work.budgetDate).format(dateFormat);
         return (
-          <>
+          <WorksContainer key={work.id}>
             {date === budgetDate ? (
               <ScheduleCell
-                key={work.id}
+                key={`${work.id}/budget`}
                 customerName={work.customer.name}
                 type={"Orçamento"}
               />
@@ -77,14 +77,14 @@ function HourCell(props) {
             )}
             {date === deliveryDate ? (
               <ScheduleCell
-                key={work.id}
+                key={`${work.id}/delivery`}
                 customerName={work.customer.name}
                 type={"Entrega"}
               />
             ) : (
               <></>
             )}
-          </>
+          </WorksContainer>
         );
       })}
     </HourCellContainer>
@@ -94,10 +94,10 @@ function HourCell(props) {
 function ScheduleCell(props) {
   const { customerName, type } = props;
   return (
-    <ScheduleCellContainer>
+    <WorkContainer>
       <p>{customerName}</p>
       <p>{type}</p>
-    </ScheduleCellContainer>
+    </WorkContainer>
   );
 }
 
@@ -124,8 +124,13 @@ const HourCellContainer = styled.article`
   padding: var(--cell-padding);
 `;
 
-const ScheduleCellContainer = styled.article`
+const WorksContainer = styled.div`
+width: 100%;
+`;
+
+const WorkContainer = styled.article`
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -138,7 +143,11 @@ const ScheduleCellContainer = styled.article`
   font-size: var(--font-size-3);
   font-weight: var(--font-bold);
   margin: 5px 0 5px 0;
+  transition: all 0.2s linear;
   p {
     margin: 5px 0 5px 0;
+  }
+  :hover{
+    background-color: var(--color-main-2);
   }
 `;
