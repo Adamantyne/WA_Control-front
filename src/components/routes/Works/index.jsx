@@ -13,7 +13,6 @@ export default function Works() {
   const [works, setWorks] = useState("Carregando");
   const { contextData } = getContext();
   const { windowState, openWindow } = getWindowContext();
-  const bgImage = contextData.backgroundImage;
 
   useEffect(() => {
     if (contextData.config) {
@@ -35,7 +34,7 @@ export default function Works() {
   }
 
   return (
-    <GlobalContainer bg={bgImage?.length > 0 ? `url(${bgImage})` : "none"}>
+    <GlobalContainer>
       <DefaultScreen>
         <NewElementButton
           onClick={() => {

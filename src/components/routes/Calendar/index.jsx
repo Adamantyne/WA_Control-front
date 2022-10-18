@@ -1,18 +1,14 @@
 import styled from "styled-components";
 import { BsFillGearFill } from "react-icons/bs";
 
-import { getContext } from "../../../hooks/UserContext";
 import DefaultScreen from "../../layout/DefaultScreen";
 import CalendarContainer from "./CalendarComponents/CalendarContainer";
 import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
-export default function Calendar(props) {
-  const { contextData } = getContext();
-  const bgImage = contextData.backgroundImage;
-
+export default function Calendar() {
 
   return (
-    <GlobalContainer bg={bgImage?.length > 0 ? `url(${bgImage})` : "none"}>
+    <GlobalContainer>
       <DefaultScreen calendar={true}>
         <ScheduleListContainer>
           <ScheduleList

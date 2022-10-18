@@ -1,5 +1,18 @@
 import styled from "styled-components";
-const GlobalContainer = styled.main`
+
+import { getContext } from "../../../hooks/UserContext";
+
+export default function GlobalContainer(props) {
+  const { backgroundImage: bgImage } = getContext().contextData;
+  console.log();
+  return (
+    <Container bg={bgImage?.length > 0 ? `url(${bgImage})` : "none"}>
+      {props.children}
+    </Container>
+  );
+}
+
+const Container = styled.main`
   width: 100%;
   min-width: var(--min-width);
   max-width: var(--min-width);
@@ -12,5 +25,3 @@ const GlobalContainer = styled.main`
   background-image: ${(props) => props.bg};
   background-size: contain;
 `;
-
-export default GlobalContainer;

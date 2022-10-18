@@ -1,5 +1,4 @@
 import react, { useEffect } from "react";
-import axios from "axios";
 
 import { getItem } from "../utils/localStorage";
 import persistUser from "./persistUser";
@@ -9,7 +8,7 @@ const context = react.createContext();
 export function Provider(props) {
   const [contextData, setContext] = react.useState({
     url: process.env.REACT_APP_URL,
-    backgroundImage:""
+    backgroundImage:getItem("backgroundImage")
   });
 
   useEffect(() => {

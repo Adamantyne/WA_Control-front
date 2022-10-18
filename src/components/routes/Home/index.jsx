@@ -12,13 +12,13 @@ import Input from "../../layout/MicroElements/Input";
 import Button from "../../layout/MicroElements/Button";
 import styled from "styled-components";
 import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
+import { setItem } from "../../../utils/localStorage";
 
 export default function Home() {
   const [works, setWorks] = useState("Carregando");
   const { contextData, setContext } = getContext();
   const { windowState } = getWindowContext();
   const [urlImage, setUrlImage] = useState("");
-  const bgImage = contextData.backgroundImage;
 
   useEffect(() => {
     if (contextData.config) {
@@ -57,10 +57,11 @@ export default function Home() {
 
   function SetBackground(e) {
     e.preventDefault();
+    setItem("backgroundImage", urlImage);
     setContext({ ...contextData, backgroundImage: urlImage });
   }
   return (
-    <GlobalContainer bg={bgImage.length>0?`url(${bgImage})`:"none"}>
+    <GlobalContainer>
       <DefaultScreen>
         <h1>Cronograma de hoje:</h1>
         {typeof works === "string" ? (
