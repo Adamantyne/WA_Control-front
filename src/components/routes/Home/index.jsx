@@ -12,13 +12,13 @@ import Input from "../../layout/MicroElements/Input";
 import Button from "../../layout/MicroElements/Button";
 import styled from "styled-components";
 import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
-import { setItem } from "../../../utils/localStorage";
+import { setItem, getItem } from "../../../utils/localStorage";
 
 export default function Home() {
   const [works, setWorks] = useState("Carregando");
   const { contextData, setContext } = getContext();
   const { windowState } = getWindowContext();
-  const [urlImage, setUrlImage] = useState("");
+  const [urlImage, setUrlImage] = useState(getItem("backgroundImage"));
 
   useEffect(() => {
     if (contextData.config) {
