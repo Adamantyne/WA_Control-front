@@ -58,13 +58,14 @@
   /* borders*/
   --border-radious-1:8px;
   --border-radious-2:10px;
+  --default-border:1px solid var(--color-main-2);
   --input-border:2px solid var(--color-main-2);
   --white-border:1px solid var(--color-white);
   --hover-border: inset 1px 1px 1px var(--color-hover);
 
   /* calendar*/
   --cell-width:180px;
-  --cell-heigth:110px;
+  --cell-heigth:160px;
   --cell-padding: 5px;
   --cell-border: inset 1px 1px 1px var(--color-main-4);
   --month-inputh-width:110px;

@@ -34,11 +34,14 @@ const ScheduleListContainer = styled.div`
 `;
 
 const ScheduleList = styled.button`
-  margin-left: auto;
+  margin: 5px 0 0 auto;
   display: flex;
   align-items: center;
   background-color: var(--color-white);
   overflow: hidden;
+  border-radius: var(--border-radious-2);
+  background-color: var(--white-window);
+  border: var(--default-border);
   svg,
   h2 {
     color: var(--color-main);
