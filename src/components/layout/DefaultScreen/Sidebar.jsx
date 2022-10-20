@@ -96,15 +96,15 @@ export default function Sidebar() {
 
 const SidebarBackground = styled.div`
   position: fixed;
-  display: ${(props) => (props.sidebarIsOpen ? "flex" : "none")};
-  opacity: var(--low-opacity);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   min-height: var(--min-height);
   background-color: var(--color-black);
-  z-index: var(--z-index-3);
+  transition: all 0.3s linear;
+  opacity: ${(props) => (props.sidebarIsOpen ? "var(--low-opacity)" : "0")};
+  z-index: ${(props) => (props.sidebarIsOpen ? "var(--z-index-3)" : "var(--z-index--1)")};
 `;
 
 const SidebarContainer = styled.aside`

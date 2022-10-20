@@ -24,7 +24,7 @@ const CalendarSidebarContainer = styled.section`
   width: 100%;
   height: 100%;
   width: var(--month-inputh-width);
-  z-index: 2;
+  z-index: var(--z-index-2);
 `;
 const HourCell = styled.article`
   display: flex;

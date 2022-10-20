@@ -53,11 +53,11 @@ const ScheduleList = styled.button`
     transform: translateX(100px);
     font-weight: var(--font-bold);
     font-size: var(--font-size-4);
-    z-index: 0;
+    z-index: var(--z-index-0);
   }
   svg {
     font-size: var(--font-size-6);
-    z-index: 1;
+    z-index: var(--z-index-1);
   }
   :hover {
     svg,

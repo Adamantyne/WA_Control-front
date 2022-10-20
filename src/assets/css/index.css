@@ -72,10 +72,14 @@
   --month-inputh-heigth:42px;
   --inset-white-border: inset 1px 1px 1px var(--color-white);
   --schedule-min-height:70px;
-  --calendar-max-width: 79vw;
+  --calendar-max-width: 85vw;
   --calendar-heigth: 90vh;
 
   /* z-index*/
+  --z-index--1: -1;
+  --z-index-0: 0;
+  --z-index-1: 1;
+  --z-index-2: 2;
   --z-index-3: 3;
   --z-index-4: 4;
 }
