@@ -21,6 +21,11 @@ export const Form = styled.form`
 
 export const AuthForm = styled(Form)`
   max-width: var(--auth-max-width);
+  min-height: var(--min-height);
+  padding: 0 30px 0 30px;
+  background-color: var(--white-window);
+  border-left: var(--white-border);
+  border-right: var(--white-border);
   h1{
     text-align: center;
     font-size: var(--font-size-tittle);

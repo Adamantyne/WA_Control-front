@@ -124,7 +124,7 @@ export default function FormCustomerWindow(props) {
             }}
             backgroundColor={"var(--color-error)"}
             width={"48%"}
-            hoverBackgroundColor={"var(--color-error2)"}
+            hoverBackgroundColor={"var(--color-error-2)"}
             margin={"10px 0 10px 0"}
           >
             deletar
