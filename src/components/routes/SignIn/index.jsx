@@ -39,6 +39,7 @@ export default function SignIn() {
       );
       persistUser(response.token, contextData, setContext);
       setItem("token", response.token);
+      setItem("userData", response.userData);
       navigate("/home");
     } catch (error) {
       console.log(error);

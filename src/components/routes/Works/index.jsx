@@ -7,7 +7,6 @@ import { getWindowContext } from "../../../hooks/windowContext";
 import WorkContainer from "./WorkContainer";
 import Loader from "../../layout/MicroElements/Loader";
 import NewElementButton from "../../layout/MicroElements/NewElementButton";
-import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
 export default function Works() {
   const [works, setWorks] = useState("Carregando");
@@ -34,7 +33,6 @@ export default function Works() {
   }
 
   return (
-    <GlobalContainer>
       <DefaultScreen>
         <NewElementButton
           onClick={() => {
@@ -55,6 +53,5 @@ export default function Works() {
           })
         )}
       </DefaultScreen>
-    </GlobalContainer>
   );
 }

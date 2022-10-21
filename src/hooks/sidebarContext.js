@@ -3,12 +3,15 @@ import react from "react";
 const context = react.createContext();
 
 export function ProviderSidebar(props) {
-    const [sidebarIsOpen, setSidebarIsOpen] = react.useState(false);
+    const [sidebarInfos, setSidebarInfos] = react.useState({
+        isOpen: false,
+        currentPage: ""
+    });
 
     return (
         <context.Provider value={{
-            sidebarIsOpen,
-            setSidebarIsOpen
+            sidebarInfos,
+            setSidebarInfos
         }}>
             {props.children}
         </context.Provider>

@@ -8,6 +8,7 @@ import { Provider } from "../../hooks/UserContext";
 import { ProviderWindow } from "../../hooks/windowContext";
 import { ProviderSidebar } from "../../hooks/sidebarContext";
 import { CalendarProvider } from "../../hooks/calendarContext";
+import GlobalContainer from "../layout/MacroElements/GlobalContainer";
 import SignUp from "../routes/SignUp";
 import SignIn from "../routes/SignIn";
 import Home from "../routes/Home";
@@ -23,15 +24,17 @@ function App() {
         <ProviderSidebar>
           <BrowserRouter>
             <CalendarProvider>
-              <Routes>
-                <Route path="/" element={<SignIn />} />
-                <Route path="/signUp" element={<SignUp />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/customers" element={<Customers />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/works" element={<Works />} />
-              </Routes>
+              <GlobalContainer>
+                <Routes>
+                  <Route path="/" element={<SignIn />} />
+                  <Route path="/signUp" element={<SignUp />} />
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/customers" element={<Customers />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/calendar" element={<Calendar />} />
+                  <Route path="/works" element={<Works />} />
+                </Routes>
+              </GlobalContainer>
             </CalendarProvider>
           </BrowserRouter>
         </ProviderSidebar>

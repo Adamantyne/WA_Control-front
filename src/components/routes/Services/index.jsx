@@ -7,7 +7,6 @@ import { getWindowContext } from "../../../hooks/windowContext";
 import ServiceContainer from "./ServiceContainer";
 import Loader from "../../layout/MicroElements/Loader";
 import NewElementButton from "../../layout/MicroElements/NewElementButton";
-import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
 export default function Services() {
   const [services, setServices] = useState("Carregando");
@@ -34,32 +33,30 @@ export default function Services() {
   }
 
   return (
-    <GlobalContainer>
-      <DefaultScreen>
-        <NewElementButton
-          onClick={() => {
-            openWindow("service");
-          }}
-        >
-          Criar serviço
-        </NewElementButton>
-        {typeof services === "string" ? (
-          services === "Carregando" ? (
-            <Loader />
-          ) : (
-            <h2>{services}</h2>
-          )
+    <DefaultScreen>
+      <NewElementButton
+        onClick={() => {
+          openWindow("service");
+        }}
+      >
+        Criar serviço
+      </NewElementButton>
+      {typeof services === "string" ? (
+        services === "Carregando" ? (
+          <Loader />
         ) : (
-          services.map((service) => {
-            return (
-              <ServiceContainer
-                key={service.id}
-                serviceData={service}
-              ></ServiceContainer>
-            );
-          })
-        )}
-      </DefaultScreen>
-    </GlobalContainer>
+          <h2>{services}</h2>
+        )
+      ) : (
+        services.map((service) => {
+          return (
+            <ServiceContainer
+              key={service.id}
+              serviceData={service}
+            ></ServiceContainer>
+          );
+        })
+      )}
+    </DefaultScreen>
   );
 }

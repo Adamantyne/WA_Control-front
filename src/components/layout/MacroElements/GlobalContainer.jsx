@@ -21,7 +21,8 @@ const Container = styled.main`
   max-height: var(--min-height);
   overflow: auto;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   background-image: ${(props) => props.bg};
   background-size: contain;
 `;

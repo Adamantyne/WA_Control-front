@@ -3,28 +3,24 @@ import { BsFillGearFill } from "react-icons/bs";
 
 import DefaultScreen from "../../layout/DefaultScreen";
 import CalendarContainer from "./CalendarComponents/CalendarContainer";
-import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
 export default function Calendar() {
-
   return (
-    <GlobalContainer>
-      <DefaultScreen calendar={true}>
-        <ScheduleListContainer>
-          <ScheduleList
-            onClick={() => {
-              window.alert(
-                "Em breve você poderá selecionar os horários de funcionamento!"
-              );
-            }}
-          >
-            <h2>Horários</h2>
-            <BsFillGearFill />
-          </ScheduleList>
-        </ScheduleListContainer>
-        <CalendarContainer></CalendarContainer>
-      </DefaultScreen>
-    </GlobalContainer>
+    <DefaultScreen calendar={true}>
+      <ScheduleListContainer>
+        <ScheduleList
+          onClick={() => {
+            window.alert(
+              "Em breve você poderá selecionar os horários de funcionamento!"
+            );
+          }}
+        >
+          <h2>Horários</h2>
+          <BsFillGearFill />
+        </ScheduleList>
+      </ScheduleListContainer>
+      <CalendarContainer></CalendarContainer>
+    </DefaultScreen>
   );
 }
 

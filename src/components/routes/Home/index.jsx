@@ -11,7 +11,6 @@ import { Form } from "../../layout/MacroElements/Form";
 import Input from "../../layout/MicroElements/Input";
 import Button from "../../layout/MicroElements/Button";
 import styled from "styled-components";
-import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 import { setItem, getItem } from "../../../utils/localStorage";
 
 export default function Home() {
@@ -61,7 +60,7 @@ export default function Home() {
     setContext({ ...contextData, backgroundImage: urlImage });
   }
   return (
-    <GlobalContainer>
+    <>
       <DefaultScreen>
         <h1>Cronograma de hoje:</h1>
         {typeof works === "string" ? (
@@ -90,7 +89,7 @@ export default function Home() {
           <HomeButton type="submit">Aplicar imagem de fundo</HomeButton>
         </Form>
       </SetImageContainer>
-    </GlobalContainer>
+    </>
   );
 }
 
@@ -105,4 +104,3 @@ const SetImageContainer = styled.section`
   width: 100%;
   padding-right: 50px;
 `;
-

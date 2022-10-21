@@ -7,7 +7,6 @@ import DefaultScreen from "../../layout/DefaultScreen";
 import Loader from "../../layout/MicroElements/Loader";
 import CustomerContainer from "./CustomerContainer";
 import NewElementButton from "../../layout/MicroElements/NewElementButton";
-import GlobalContainer from "../../layout/MacroElements/GlobalContainer";
 
 export default function Customers() {
   const [customers, setCustomers] = useState("Carregando");
@@ -34,32 +33,30 @@ export default function Customers() {
   }
 
   return (
-    <GlobalContainer>
-      <DefaultScreen>
-        <NewElementButton
-          onClick={() => {
-            openWindow("customer");
-          }}
-        >
-          Criar cliente
-        </NewElementButton>
-        {typeof customers === "string" ? (
-          customers === "Carregando" ? (
-            <Loader />
-          ) : (
-            <h2>{customers}</h2>
-          )
+    <DefaultScreen>
+      <NewElementButton
+        onClick={() => {
+          openWindow("customer");
+        }}
+      >
+        Criar cliente
+      </NewElementButton>
+      {typeof customers === "string" ? (
+        customers === "Carregando" ? (
+          <Loader />
         ) : (
-          customers.map((customer) => {
-            return (
-              <CustomerContainer
-                key={customer.id}
-                customerData={customer}
-              ></CustomerContainer>
-            );
-          })
-        )}
-      </DefaultScreen>
-    </GlobalContainer>
+          <h2>{customers}</h2>
+        )
+      ) : (
+        customers.map((customer) => {
+          return (
+            <CustomerContainer
+              key={customer.id}
+              customerData={customer}
+            ></CustomerContainer>
+          );
+        })
+      )}
+    </DefaultScreen>
   );
 }
