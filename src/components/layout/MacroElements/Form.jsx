@@ -26,6 +26,7 @@ export const AuthForm = styled(Form)`
   background-color: var(--white-window);
   border-left: var(--white-border);
   border-right: var(--white-border);
+  box-shadow: var(--shadow);
   h1{
     text-align: center;
     font-size: var(--font-size-tittle);
