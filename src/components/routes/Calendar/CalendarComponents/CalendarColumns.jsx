@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import dayjs from "dayjs";
 
-import hours from "../calendarUtilities/getHours";
 import { getCalendarContext } from "../../../../hooks/calendarContext";
 import { postRequisition } from "../../../../utils/api";
 import { getContext } from "../../../../hooks/UserContext";
 
 export default function CalendarColumns(props) {
   const { day, works } = props;
-  const { calendarData, schedulingData, setSchedulingData } =
+  const { calendarData, schedulingData, setSchedulingData, hours } =
     getCalendarContext();
   const { contextData } = getContext();
   const { openedMonth } = calendarData;

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-import  hours  from "../calendarUtilities/getHours";
+import { getCalendarContext } from "../../../../hooks/calendarContext";
 import MonthInput from "../calendarUtilities/MonthInput";
 
 export default function CalendarSidebar(props) {
+  const {hours} = getCalendarContext();
   const {  setCalendar } = props;
   return (
     <CalendarSidebarContainer>

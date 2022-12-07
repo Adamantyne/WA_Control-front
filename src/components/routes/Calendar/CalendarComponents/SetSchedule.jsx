@@ -1,26 +1,26 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { BsFillGearFill } from "react-icons/bs";
 
-import DefaultScreen from "../../layout/DefaultScreen";
-import CalendarContainer from "./CalendarComponents/CalendarContainer";
-import SetSchedule from "./CalendarComponents/SetSchedule";
+import { getItem, setItem } from "../../../../utils/localStorage";
 
-export default function Calendar() {
+export default function SetSchedule(){
 
-  return (
-    <DefaultScreen calendar={true}>
-      <ScheduleListContainer>
-        <SetSchedule />
-      </ScheduleListContainer>
-      <CalendarContainer></CalendarContainer>
-    </DefaultScreen>
-  );
+    function setHours(hours){
+        setItem("hours",hours)
+    }
+    
+    return(<ScheduleList
+        onClick={() => {
+          window.alert(
+            "Em breve você poderá selecionar os horários de funcionamento!"
+          );
+        }}
+      >
+        <h2>Horários</h2>
+        <BsFillGearFill />
+      </ScheduleList>)
 }
-
-const ScheduleListContainer = styled.div`
-  width: 100%;
-  max-width: var(--calendar-max-width);
-`;
 
 const ScheduleList = styled.button`
   margin: 5px 0 0 auto;
