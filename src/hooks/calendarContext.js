@@ -4,7 +4,7 @@ import { getItem } from "../utils/localStorage";
 
 const context = react.createContext();
 
-export function CalendarProvider(props) {
+export function ProviderCalendar(props) {
   const initialHoursArr = [
     "07:00",
     "08:00",
