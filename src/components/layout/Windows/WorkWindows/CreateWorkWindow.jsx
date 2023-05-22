@@ -85,6 +85,30 @@ export default function CreateWorkWindow(props) {
               : "var(--color-transparent)"
           }
         />
+        <InfoLabel message={"Observação"} />
+        <TextArea
+          type="text"
+          maxLength={100}
+          placeholder="Inserir observação do trabalho..."
+          value={workData.observation}
+          onChange={(e) =>
+            setWorkData({ ...workData, observation: e.target.value })
+          }
+        />
+        
+        <ErrLabel />
+
+        <InfoLabel message={"Pago"} />
+        <ComboBox
+          defaultValue={workData.payed}
+          onChange={(e) => {
+            const value = e.target.value === "true" ? true : false;
+            setWorkData({ ...workData, payed: value });
+          }}
+        >
+          <option value={false}>não</option>
+          <option value={true}>sim</option>
+        </ComboBox>
 
         <CustonButon
           type="submit"

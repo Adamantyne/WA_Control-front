@@ -1,5 +1,7 @@
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 import styled from "styled-components";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Input from "../../MicroElements/Input";
 import InfoLabel from "../../MicroElements/InfoLabel";
@@ -7,9 +9,7 @@ import ErrLabel from "../../MicroElements/ErrLabel";
 import CustonButon from "../../MicroElements/CustomButton";
 import TextArea from "../../MicroElements/TextArea";
 import ComboBox from "../../MicroElements/ComboBox";
-import { useState } from "react";
 import { getCalendarContext } from "../../../../hooks/calendarContext";
-import { useNavigate } from "react-router-dom";
 
 export default function UpdateBudget(props) {
   const { workData, setWorkData, errorMessage, customerNumbers } = props;
@@ -17,6 +17,7 @@ export default function UpdateBudget(props) {
   const [selectedNumber, setSelectedNumber] = useState(0);
   const { setSchedulingData } = getCalendarContext();
   const navigate = useNavigate();
+  
   return (
     <>
       <InfoLabel message={"Descrição"} />
@@ -102,6 +103,31 @@ export default function UpdateBudget(props) {
         </div>
       </BudgetDiv>
       <ErrLabel />
+
+      <InfoLabel message={"Observação"} />
+        <TextArea
+          type="text"
+          maxLength={100}
+          placeholder="Inserir observação do trabalho..."
+          value={workData.observation ? workData.observation:""}
+          onChange={(e) =>
+            setWorkData({ ...workData, observation: e.target.value })
+          }
+        />
+        
+        <ErrLabel />
+
+        <InfoLabel message={"Pago"} />
+        <ComboBox
+          defaultValue={workData.payed}
+          onChange={(e) => {
+            const value = e.target.value === "true" ? true : false;
+            setWorkData({ ...workData, payed: value });
+          }}
+        >
+          <option value={false}>não</option>
+          <option value={true}>sim</option>
+        </ComboBox>
     </>
   );
 }

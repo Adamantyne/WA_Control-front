@@ -15,6 +15,9 @@ export default function WorkContainer(props) {
   const createDate = dayjs(createAt).format("DD/MM/YY");
   return (
     <ElementContainer
+      bgVariant = {workData.payed ? "var(--color-green)" : null}
+      hoverBgVariant = {workData.payed ? "var(--color-dark-green)" : null}
+      borderVariant = {workData.payed ? "var(--green-border)" : null}
       onClick={() => {
         openWindow("work", id);
       }}

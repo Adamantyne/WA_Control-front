@@ -81,7 +81,7 @@ export default function Home() {
         <Form onSubmit={SetBackground}>
           <Input
             type={"url"}
-            value={urlImage}
+            value={urlImage ? urlImage : ""}
             onChange={(e) => {
               setUrlImage(e.target.value);
             }}

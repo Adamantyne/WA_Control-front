@@ -15,10 +15,10 @@ export default function SetSchedule() {
     <ScheduleListContainer>
       <ScheduleList
         onClick={() => {
-          setOptionsInfos({isOpen:true, currentOptions:"hours"});
-          // window.alert(
-          //   "Em breve você poderá selecionar os horários de funcionamento!"
-          // );
+          //setOptionsInfos({isOpen:true, currentOptions:"hours"});
+          window.alert(
+             "Em breve você poderá selecionar os horários de funcionamento!"
+          );
         }}
       >
         <h2>Horários</h2>

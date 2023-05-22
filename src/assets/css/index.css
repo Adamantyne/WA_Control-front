@@ -27,6 +27,7 @@
   --color-main-6: #00abdf;
   --hover-color:#00e3f3;
   --hover-color-2:rgba(117, 50, 243, 0.7);
+  --hover-color-3:#775fff;
 	--color-white:#ffffff;
 	--color-black:#171717;
 	--color-grey:#CECECE;
@@ -35,6 +36,8 @@
   --color-error: #fd3d5d;
   --color-error-2: rgb(255, 0, 0);
   --color-purple: #8d008d;
+  --color-green: #00800b;
+  --color-dark-green: #00bd13;
   --black-window:rgb(0, 0, 0, 0.4);
   --white-window:rgba(255, 255, 255, 0.6);
   --shadow:0px 0px 5px rgb(0,0,0,0.5);
@@ -62,6 +65,8 @@
   --input-border:2px solid var(--color-main-2);
   --white-border:1px solid var(--color-white);
   --hover-border: inset 1px 1px 1px var(--color-hover);
+  --green-border: 5px solid var(--color-dark-green);
+  --blue-border: 5px solid var(--hover-color-3);
 
   /* calendar*/
   --cell-width:180px;

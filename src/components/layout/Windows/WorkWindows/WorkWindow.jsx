@@ -47,7 +47,7 @@ export default function WorkWindow(props) {
   async function submitData(e) {
     e.preventDefault();
     try {
-      const requestData = updateObj(currentWork, workData)
+      const requestData = updateObj(currentWork, workData);
       await postRequisition(`works/${id}`, contextData, requestData);
 
       closeWindow();
@@ -64,13 +64,15 @@ export default function WorkWindow(props) {
           workData={workData}
           errorMessage={errorMessage}
         />
-      ) : (
+      ) : currentWork.id ? (
         <UpdateBudget
           workData={workData}
           setWorkData={setWorkData}
           errorMessage={errorMessage}
           customerNumbers={customerNumbers}
         />
+      ) : (
+        <></>
       )}
       <CustonButon
         type="submit"
