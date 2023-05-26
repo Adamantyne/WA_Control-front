@@ -63,7 +63,7 @@ export default function UpdateBudget(props) {
         <TextArea
           type="text"
           placeholder="Inserir orçamento..."
-          maxLength={100}
+          maxLength={5000}
           value={workData.budget ? workData.budget : ""}
           onChange={(e) => setWorkData({ ...workData, budget: e.target.value })}
         />

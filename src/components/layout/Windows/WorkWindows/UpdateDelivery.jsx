@@ -27,6 +27,14 @@ export default function UpdateDelivery(props) {
           setWorkData({ ...workData, description: e.target.value })
         }
       />
+      <InfoLabel message={"Orçamento"} />
+      <TextArea
+        type="text"
+        placeholder="Inserir orçamento..."
+        maxLength={5000}
+        value={workData.budget ? workData.budget : ""}
+        onChange={(e) => setWorkData({ ...workData, budget: e.target.value })}
+      />
       <ErrLabel />
       <InfoLabel message={"Data de entrega"} />
       <DateDiv>
@@ -131,7 +139,7 @@ const FinalizationDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  div{
+  div {
     display: flex;
     flex-direction: column;
     max-width: var(--month-inputh-width);
