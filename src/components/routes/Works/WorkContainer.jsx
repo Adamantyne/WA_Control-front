@@ -13,11 +13,14 @@ export default function WorkContainer(props) {
   const { openWindow } = getWindowContext();
   const { id, customer, createAt } = workData;
   const createDate = dayjs(createAt).format("DD/MM/YY");
+
+  function checkingWorkStatus(){
+    return workData.payed && workData.delivered && workData.finished
+  }
+
   return (
     <ElementContainer
-      bgVariant = {workData.payed ? "var(--color-green)" : null}
-      hoverBgVariant = {workData.payed ? "var(--color-dark-green)" : null}
-      borderVariant = {workData.payed ? "var(--green-border)" : null}
+      borderVariant = {checkingWorkStatus() ? "var(--green-border)" : null}
       onClick={() => {
         openWindow("work", id);
       }}

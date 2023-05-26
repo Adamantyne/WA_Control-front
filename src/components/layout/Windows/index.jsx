@@ -27,6 +27,8 @@ const WindowContainer = styled.section`
   width: 100%;
   max-width: var(--window-max-width);
   background-color: var(--color-white);
+  border-left: var(--default-border);
+  border-right: var(--default-border);
   min-height: var(--window-min-heigth);
   max-height: var(--window-min-heigth);
   overflow-y: auto;

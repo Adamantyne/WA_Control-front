@@ -54,19 +54,6 @@ export default function UpdateDelivery(props) {
             : "var(--color-transparent)"
         }
       />
-      <InfoLabel message={"Finalizado"} />
-      <ComboBox
-        defaultValue={workData.delivered}
-        onChange={(e) => {
-          const value = e.target.value === "true" ? true : false;
-          setWorkData({ ...workData, delivered: value });
-        }}
-      >
-        <option value={false}>não</option>
-        <option value={true}>sim</option>
-      </ComboBox>
-
-      <ErrLabel />
 
       <InfoLabel message={"Observação"} />
       <TextArea
@@ -81,17 +68,48 @@ export default function UpdateDelivery(props) {
 
       <ErrLabel />
 
-      <InfoLabel message={"Pago"} />
-      <ComboBox
-        defaultValue={workData.payed}
-        onChange={(e) => {
-          const value = e.target.value === "true" ? true : false;
-          setWorkData({ ...workData, payed: value });
-        }}
-      >
-        <option value={false}>não</option>
-        <option value={true}>sim</option>
-      </ComboBox>
+      <FinalizationDiv>
+        <div>
+          <InfoLabel message={"Finalizado"} />
+          <ComboBox
+            defaultValue={workData.finished}
+            onChange={(e) => {
+              const value = e.target.value === "true" ? true : false;
+              setWorkData({ ...workData, finished: value });
+            }}
+          >
+            <option value={false}>não</option>
+            <option value={true}>sim</option>
+          </ComboBox>
+        </div>
+        <div>
+          <InfoLabel message={"Pago"} />
+          <ComboBox
+            defaultValue={workData.payed}
+            onChange={(e) => {
+              const value = e.target.value === "true" ? true : false;
+              setWorkData({ ...workData, payed: value });
+            }}
+          >
+            <option value={false}>não</option>
+            <option value={true}>sim</option>
+          </ComboBox>
+        </div>
+
+        <div>
+          <InfoLabel message={"Entregue"} />
+          <ComboBox
+            defaultValue={workData.delivered}
+            onChange={(e) => {
+              const value = e.target.value === "true" ? true : false;
+              setWorkData({ ...workData, delivered: value });
+            }}
+          >
+            <option value={false}>não</option>
+            <option value={true}>sim</option>
+          </ComboBox>
+        </div>
+      </FinalizationDiv>
     </>
   );
 }
@@ -106,5 +124,16 @@ const DateDiv = styled.div`
     :hover {
       cursor: pointer;
     }
+  }
+`;
+
+const FinalizationDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div{
+    display: flex;
+    flex-direction: column;
+    max-width: var(--month-inputh-width);
   }
 `;

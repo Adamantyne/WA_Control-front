@@ -49,7 +49,7 @@ export default function CalendarColumns(props) {
 
 function HourCell(props) {
   const { day, hour, openedMonth, scheduling, works } = props;
-  const year = "2022";
+  const year = `${new Date().getFullYear()}`;
   const dateFormat = "MM/DD/YYYY,hh:mm";
   const date = dayjs(`${openedMonth}/${day}/${year},${hour}`).format(
     dateFormat
@@ -135,7 +135,7 @@ const WorkContainer = styled.article`
   justify-content: space-between;
   width: 100%;
   min-height: var(--schedule-min-height);
-  background-color: var(--color-main);
+  background-color: var(--color-main-2);
   color: var(--color-white);
   border-radius: var(--border-radious-1);
   padding: var(--cell-padding);
@@ -147,6 +147,6 @@ const WorkContainer = styled.article`
     margin: 5px 0 5px 0;
   }
   :hover{
-    background-color: var(--color-main-2);
+    background-color: var(--color-main);
   }
 `;

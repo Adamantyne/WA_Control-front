@@ -13,7 +13,7 @@ const Button = styled.button`
   border-radius: var(--border-radious-2);
   :hover {
     cursor: pointer;
-    background-color: var(--color-main);
+    background-color: var(--color-main-3);
   }
 `;
 

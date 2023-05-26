@@ -22,12 +22,9 @@
 	--color-main:#2600ff;
   --color-main-2:#583bfc;
   --color-main-3:rgb(121, 75, 206);
-  --color-main-4:rgba(143, 82, 255, 0.4);
-  --color-main-5:#8067f1;
-  --color-main-6: #00abdf;
   --hover-color:#00e3f3;
   --hover-color-2:rgba(117, 50, 243, 0.7);
-  --hover-color-3:#775fff;
+  --hover-color-3:#dedaf7;
 	--color-white:#ffffff;
 	--color-black:#171717;
 	--color-grey:#CECECE;
@@ -40,7 +37,7 @@
   --color-dark-green: #00bd13;
   --black-window:rgb(0, 0, 0, 0.4);
   --white-window:rgba(255, 255, 255, 0.6);
-  --shadow:0px 0px 5px rgb(0,0,0,0.5);
+  --shadow:1px 1px 7px rgb(0,0,0);
   --low-opacity:0.6;
 
   /* sizes */
@@ -49,8 +46,8 @@
   --min-width: 100vw;
   --element-container-min-heigth:200px;
   --window-min-heigth:100vh;
-  --window-max-width:400px;
-  --window-padding:10px 5px 10px 5px;
+  --window-max-width:420px;
+  --window-padding:10px 10px 10px 10px;
   --page-max-width:500px;
   --page-min-width:500px;
   --page-padding:20px 60px 0 60px;
@@ -61,18 +58,19 @@
   /* borders*/
   --border-radious-1:8px;
   --border-radious-2:10px;
-  --default-border:1px solid var(--color-main-2);
+  --default-border:2px solid var(--hover-color-3);
   --input-border:2px solid var(--color-main-2);
   --white-border:1px solid var(--color-white);
+  --white-border-2:5px solid var(--color-white);
   --hover-border: inset 1px 1px 1px var(--color-hover);
   --green-border: 5px solid var(--color-dark-green);
-  --blue-border: 5px solid var(--hover-color-3);
+  
 
   /* calendar*/
   --cell-width:180px;
   --cell-heigth:160px;
   --cell-padding: 5px;
-  --cell-border: inset 1px 1px 1px var(--color-main-4);
+  --cell-border: inset 1px 1px 1px var(--color-main-2);
   --month-inputh-width:110px;
   --month-inputh-heigth:42px;
   --inset-white-border: inset 1px 1px 1px var(--color-white);
